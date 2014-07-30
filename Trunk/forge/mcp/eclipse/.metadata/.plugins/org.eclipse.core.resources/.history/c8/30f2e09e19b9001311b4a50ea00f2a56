@@ -1,0 +1,68 @@
+package Djf.fresh.trees;
+
+import java.util.List;
+import java.util.Random;
+
+import Djf.fresh.cookies.CookieMod;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class PecanLog extends BlockLog
+{
+	public static final String[] woodType = new String[] {"Pecan"};
+	private Icon tree_Top;
+	private Icon tree_Side;
+	
+	public PecanLog(int par1)
+	{
+		super(par1);
+		setUnlocalizedName("Pecan Log");
+		setHardness(1.5f);
+		setCreativeTab(CookieMod.cookieTab);
+	}
+	
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return blockID;
+    }
+	
+	@SideOnly(Side.CLIENT)
+
+    protected Icon getSideIcon(int par1)
+    {
+        return tree_Side;
+    }
+
+    @SideOnly(Side.CLIENT)
+    
+    protected Icon getEndIcon(int par1)
+    {
+        return tree_Top;
+    }
+    
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+     */
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    {
+        par3List.add(new ItemStack(par1, 1, 0));//the last value represends the index into woodType
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister)
+    {
+       tree_Top = iconRegister.registerIcon("djf:textures/blocks/PeacanLog_Top");
+       tree_Side = iconRegister.registerIcon("djf:textures/blocks/PeacanLog_Side");
+    }
+}

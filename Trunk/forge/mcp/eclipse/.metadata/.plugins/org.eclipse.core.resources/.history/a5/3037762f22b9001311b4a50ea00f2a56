@@ -1,0 +1,8 @@
+package Djf.minecraft.world;
+
+import net.minecraft.world.gen.feature.WorldGenTrees;
+
+public class MyWorldGenTrees extends WorldGenTrees
+{
+
+}

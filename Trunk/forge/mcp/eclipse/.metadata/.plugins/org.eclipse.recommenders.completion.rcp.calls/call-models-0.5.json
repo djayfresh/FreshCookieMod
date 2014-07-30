@@ -1,0 +1,17 @@
+{
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\src\\minecraft": {
+    "location": "D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\src\\minecraft",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\src\\minecraft\u0027. Skipped."
+  },
+  "D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\jars\\libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.0\\lwjgl-2.9.0.jar": {
+    "location": "D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\jars\\libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.0\\lwjgl-2.9.0.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027D:\\Saves\\MCP_checkout\\Trunk\\forge\\mcp\\jars\\libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.0\\lwjgl-2.9.0.jar\u0027. Neither fingerprint \u00275654d06e61a1bba7ae1e7f5233e1106be64c91cd\u0027 nor symbolic name \u0027lwjgl-2.9.0\u0027 are known."
+  }
+}

@@ -1,0 +1,17 @@
+package Djf.minecraft.world;
+
+public class ColorizerLeaves
+{
+
+	public static int getFoliageColorMacadamia()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static int getFoliageColorPecan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
