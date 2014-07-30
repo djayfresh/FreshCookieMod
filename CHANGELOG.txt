@@ -1,0 +1,10 @@
+Update 4/6/14 - 11:41 PM | DJayFresh
+•Fixed Oats texture missing, naming issue
+•(Change texture/items/Oats.png to "oat.png")
+•Also have tested on Forge 1.6.4 servers, functioning
+•New trees will spawn in newly generated sections
+
+
+Update 4/1/14 - 1:52 AM | DJayFresh
+•Fixed Sun Drying Table GUI when opening the table. 
+

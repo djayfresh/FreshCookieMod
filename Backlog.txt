@@ -1,0 +1,43 @@
+/** Cookie Mod Backlog
+*
+* @Doug Fresh
+* Cookie Mod V0.5
+* 3/26/14 - Log Started
+* ~~
+**/
+
+// Required Changes
+Peanut plant texture
+Recipe book **High importance** 
+
+// ToDo - 
+/**
+Grape Vines, Grown on nearby blocks 
+White Macadamia Nuts *Textures
+Pecans *Textures
+COOKIE JAR! 
+
+**/
+
+
+
+
+//TUTORIALS
+/**
+N/A
+
+**/
+
+//COMPLETED
+/**
+fixed Oats -> oats
+mcmod.info file created 
+Cookie Dough
+CC and OR recipes
+Edible cookies
+Network Shared
+Grapes -> Raisins
+Sun Table
+Cookie Tab
+Trees
+**/
