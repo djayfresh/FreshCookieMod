@@ -2,14 +2,6 @@
 
 Minecraft 1.6.4 - Forge Mod. Created 5 new cookies for in game, including art and a new furnace/suntable; two new trees, a peanut plant, and grape vines.
 
-    DJayFresh - Fresh Cookie Mod (FreshCAA)
-
-    V1.0
-
-    Twitter - FreshDJay
-    FaceBook- https://Facebook.com/DougJayFresh
-    Website - http://djayfresh.com/FreshCAA
-
 ## Setup
 
 1. Open your minecraft.exe 
@@ -31,7 +23,7 @@ Minecraft 1.6.4 - Forge Mod. Created 5 new cookies for in game, including art an
 
 ## Recipe
 
-* Sun Drying Table - from left to right top to bottom
+Sun Drying Table - from left to right top to bottom
 
 	WoodPlanks | Stick | WoodPlanks
 	Stick 	   | glass | Stick
