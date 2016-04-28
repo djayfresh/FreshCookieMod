@@ -269,7 +269,7 @@ public class CookieMod
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
 		//crafting
 		
-		GameRegistry.addRecipe(new ItemStack(sunTableIdle,1), "wsw", "sgs", "wsw", 'w', Block.planks, 's', Item.stick, 'g', Block.glass);
+		GameRegistry.addRecipe(new ItemStack(sunTableIdle,1), "wgw", "gdg", "wgw", 'w', Item.stick, 'g', Item.ingotGold, 'd', Item.diamond);
 		GameRegistry.addShapelessRecipe(new ItemStack(cookie_Dough, 4),
 				new Object[] { Item.egg, Item.sugar, Item.wheat });
 		GameRegistry.addShapelessRecipe(new ItemStack(cc_Dough, 4),
