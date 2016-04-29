@@ -25,9 +25,9 @@ Minecraft 1.6.4 - Forge Mod. Created 5 new cookies for in game, including art an
 
 Sun Drying Table - from left to right top to bottom
 
-	WoodPlanks | Stick | WoodPlanks
-	Stick 	   | glass | Stick
-	WoodPlanks | Stick | WoodPlanks
+	Stick | Gold    | Stick
+	Gold  | Diamond | Gold
+	Stick | Gold    | Stick
 
 ## Known bugs
 
