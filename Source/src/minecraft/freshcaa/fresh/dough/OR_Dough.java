@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.minecraft.item.SelfSetItem;
 
-public class OR_Dough extends SelfSetItem
+public class OR_Dough extends CookieDough
 {
 
 	public OR_Dough(int par1)

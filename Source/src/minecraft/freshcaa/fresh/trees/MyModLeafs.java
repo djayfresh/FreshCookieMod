@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
@@ -19,7 +20,7 @@ import freshcaa.minecraft.world.ColorizerLeaves;
 public class MyModLeafs extends BlockLeaves
 {
 	public static final String[] LEAF_TYPES = new String[] {"pecan", "macadamia"};
-	public static final String[][] LEAF_TEXTURES = new String[][] {{"leaves_pecan", "leaves_macadamia"}, {"leaves_pecan_opaque", "leaves_macadamia_opaque"}};
+	public static final String[][] LEAF_TEXTURES = new String[][] {{"leaves_pecan_opaque", "leaves_macadamia_opaque"}, {"leaves_pecan", "leaves_macadamia"}};
 	private Icon[][] iconArray = new Icon[2][];
     private int iconType;
 	
@@ -57,19 +58,16 @@ public class MyModLeafs extends BlockLeaves
     	{
     		return iconArray[iconType][1];
     	}
-        return (par2 & 3) == 1 ? this.iconArray[this.iconType][1] : ((par2 & 3) == 3 ? this.iconArray[this.iconType][3] : ((par2 & 3) == 2 ? this.iconArray[this.iconType][2] : this.iconArray[this.iconType][0]));
+    	
+        return (par2 & 2) == 1 ? this.iconArray[this.iconType][1] : this.iconArray[this.iconType][0];
     }
     
     @SideOnly(Side.CLIENT)
     public int getBlockColor()
     { 
-        return ColorizerLeaves.getFoliageColor();
-    }
-
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(int par1)
-    {
-        return CookieMod.macadamiaLeaf.blockID == blockID ? ColorizerLeaves.getFoliageColorMacadamia() : ColorizerLeaves.getFoliageColorPecan();
+        double d0 = 0.5D;
+        double d1 = 1.0D;
+        return ColorizerFoliage.getFoliageColor(d0, d1);
     }
 
     @SideOnly(Side.CLIENT)
@@ -155,5 +153,17 @@ public class MyModLeafs extends BlockLeaves
     public boolean isLeaves(World world, int x, int y, int z)
     {
         return true;
+    }
+    
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
+     * coordinates.  Args: blockAccess, x, y, z, side
+     */
+    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        int i1 = par1IBlockAccess.getBlockId(par2, par3, par4);
+        return !this.graphicsLevel && i1 == this.blockID ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
     }
 }

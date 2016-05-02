@@ -1,17 +1,21 @@
 package freshcaa.fresh.dough;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.ItemFood;
+import net.minecraft.potion.Potion;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.minecraft.item.SelfSetFoodItem;
 import freshcaa.minecraft.item.SelfSetItem;
 
-public class CookieDough extends SelfSetItem
+public class CookieDough extends SelfSetFoodItem
 {
 
-	public CookieDough(int par1)
+	public CookieDough(int id)
 	{
-		super(par1);
+		super(id, 1, 0, false );
 		setUnlocalizedName("Cookie Dough");
 		setCreativeTab(CookieMod.cookieTab);
+		setPotionEffect(Potion.poison.id, 5, 0, 0.4F);
 		// TODO Auto-generated constructor stub
 	}
 
