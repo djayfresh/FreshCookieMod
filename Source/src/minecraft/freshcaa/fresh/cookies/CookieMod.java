@@ -183,7 +183,23 @@ public class CookieMod
 		//Events
 		MinecraftForge.EVENT_BUS.register(new MyBoneMeal_Event());
 		
-		// define items
+		AddModItems();
+		
+		RegisterItems();
+		
+		AddLanguages();
+		
+		AddRecipes();
+
+		AddWorldGen();
+		
+		//TileEntities
+		guiHandler = new GuiHandler();
+		GameRegistry.registerTileEntity(TileEntitySunTable.class, "tileEntitySunTable");
+	}
+	
+	private static void AddModItems()
+	{
 		//Cookies
 		cc_Cookie = new Cookie_CC(cc_CookieID); //Cookie is are item type 
 		wm_Cookie = new Cookie_WM(wm_CookieID); //Cookie is are item type 
@@ -206,8 +222,6 @@ public class CookieMod
 		// define blocks
 		sunTable = new SunTable(sunTableID, true);
 		sunTableIdle = new SunTable(sunTableIdleID, false);
-		GameRegistry.registerBlock(sunTable, "Sun Drying Table");
-		GameRegistry.registerBlock(sunTableIdle, "Sun Drying Table Idle");
 		
 		pecanSapling = new MyModSaplings(pecanSaplingID).setUnlocalizedName("Pecan Sapling").setCreativeTab(CookieMod.cookieTab);
 		pecanLog = new MyModLogs(pecanLogID).setUnlocalizedName("Pecan Log").setCreativeTab(CookieMod.cookieTab);
@@ -216,7 +230,26 @@ public class CookieMod
 		macadamiaSapling = new MyModSaplings(macadamiaSaplingID).setUnlocalizedName("Macadamia Sapling").setCreativeTab(CookieMod.cookieTab);
 		macadamiaLog = new MyModLogs(macadamiaLogID).setUnlocalizedName("Macadamia Log").setCreativeTab(CookieMod.cookieTab);
 		macadamiaLeaf = new MyModLeafs(macadamiaLeafID).setUnlocalizedName("Macadamia Leaf");
+
+		//crops
+		peanutPlant = new PeanutPlant(peanutPlantID).setTextureName("PeanutPlant");
+		grapeVine = new GrapeVine(grapeVineID).setTextureName("GrapeVine");
 		
+		//seeds
+		grapeSeeds = new GrapeSeeds(grapeSeedsID, grapeVine.blockID,
+				Block.tilledField.blockID).setUnlocalizedName("Grapes");
+		peanutSeeds = new PeanutSeed(peanutSeedsID, peanutPlant.blockID,
+				Block.tilledField.blockID).setUnlocalizedName("Peanuts");
+		
+	}
+		
+	private static void RegisterItems()
+	{
+		//Furnace
+		GameRegistry.registerBlock(sunTable, "Sun Drying Table");
+		GameRegistry.registerBlock(sunTableIdle, "Sun Drying Table Idle");
+		
+		//Wood
 		GameRegistry.registerBlock(pecanLeaf, "PecanLeaf");
 		GameRegistry.registerBlock(pecanLog, "PecanLog");
 		GameRegistry.registerBlock(pecanSapling, "PecanSapling");
@@ -225,24 +258,19 @@ public class CookieMod
 		GameRegistry.registerBlock(macadamiaSapling, "MacadamiaSapling");
 		
 		//Crops
-		peanutPlant = new PeanutPlant(peanutPlantID).setTextureName("PeanutPlant");
 		GameRegistry.registerBlock(peanutPlant, "Peanut Plant");
 		OreDictionary.registerOre("cropPeanuts", peanutPlant);
 		
-		grapeVine = new GrapeVine(grapeVineID).setTextureName("GrapeVine");
 		GameRegistry.registerBlock(grapeVine, "Grape Vine");
 		OreDictionary.registerOre("cropGrapes", grapeVine);
 
 		//Seeds
-		peanutSeeds = new PeanutSeed(peanutSeedsID, peanutPlant.blockID,
-				Block.tilledField.blockID).setUnlocalizedName("Peanuts");
 		OreDictionary.registerOre("seedPeanut", peanutSeeds);
-		
-		grapeSeeds = new GrapeSeeds(grapeSeedsID, grapeVine.blockID,
-				Block.tilledField.blockID).setUnlocalizedName("Grapes");
 		OreDictionary.registerOre("seedGrape", grapeSeeds);
-		//adding names
-		
+	}
+	
+	private static void AddLanguages()
+	{
 		LanguageRegistry.instance().addStringLocalization("container.SunTable", "Sun Table");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.Cookies", "en_US", "Fresh Cookies");
 		//items
@@ -276,8 +304,11 @@ public class CookieMod
 		LanguageRegistry.addName(macadamiaLeaf, "Macadamia Leaf");
 		LanguageRegistry.addName(macadamiaLog, "Macadamia Log");
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
+	}
+	
+	private static void AddRecipes()
+	{
 		//crafting
-		
 		GameRegistry.addRecipe(new ItemStack(sunTableIdle,1), "wgw", "gdg", "wgw", 'w', Item.stick, 'g', Item.ingotGold, 'd', Item.diamond);
 		GameRegistry.addShapelessRecipe(new ItemStack(cookie_Dough, 4),
 				new Object[] { Item.egg, Item.sugar, Item.wheat });
@@ -316,16 +347,14 @@ public class CookieMod
 				0.15F);
 		GameRegistry.addSmelting(macadamiaLog.blockID, new ItemStack(Item.coal, 1, 1),
 				0.15F);
-
-		//World Generation
+	}
+	
+	private static void AddWorldGen()
+	{
 		GameRegistry.registerWorldGenerator(new WorldGeneratorDjf());
 		MinecraftForge.addGrassSeed(new ItemStack(peanutSeeds), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(grapeSeeds), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(macadamiaSapling), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(pecanSapling), 10);
-		
-		//TileEntities
-		guiHandler = new GuiHandler();
-		GameRegistry.registerTileEntity(TileEntitySunTable.class, "tileEntitySunTable");
 	}
 }
