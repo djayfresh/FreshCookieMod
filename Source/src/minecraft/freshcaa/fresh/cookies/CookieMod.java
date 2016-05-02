@@ -12,6 +12,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -226,14 +227,20 @@ public class CookieMod
 		//Crops
 		peanutPlant = new PeanutPlant(peanutPlantID).setTextureName("PeanutPlant");
 		GameRegistry.registerBlock(peanutPlant, "Peanut Plant");
+		OreDictionary.registerOre("cropPeanuts", peanutPlant);
+		
 		grapeVine = new GrapeVine(grapeVineID).setTextureName("GrapeVine");
 		GameRegistry.registerBlock(grapeVine, "Grape Vine");
+		OreDictionary.registerOre("cropGrapes", grapeVine);
 
 		//Seeds
 		peanutSeeds = new PeanutSeed(peanutSeedsID, peanutPlant.blockID,
 				Block.tilledField.blockID).setUnlocalizedName("Peanuts");
+		OreDictionary.registerOre("seedPeanut", peanutSeeds);
+		
 		grapeSeeds = new GrapeSeeds(grapeSeedsID, grapeVine.blockID,
 				Block.tilledField.blockID).setUnlocalizedName("Grapes");
+		OreDictionary.registerOre("seedGrape", grapeSeeds);
 		//adding names
 		
 		LanguageRegistry.instance().addStringLocalization("container.SunTable", "Sun Table");
