@@ -2,12 +2,13 @@ package freshcaa.fresh.materials;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.minecraft.item.SelfSetFoodItem;
 import freshcaa.minecraft.item.SelfSetItem;
 
-public class Oats extends SelfSetItem {
+public class Oats extends SelfSetFoodItem {
 
 	public Oats(int par1) {
-		super(par1);
+		super(par1, 2, 1, false);
 		// TODO Auto-generated constructor stub
 		setUnlocalizedName("Oats");
 		setCreativeTab(CookieMod.cookieTab);

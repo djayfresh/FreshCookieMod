@@ -2,14 +2,15 @@ package freshcaa.fresh.materials;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.minecraft.item.SelfSetFoodItem;
 import freshcaa.minecraft.item.SelfSetItem;
 
-public class WhiteMacadamia extends SelfSetItem
+public class WhiteMacadamia extends SelfSetFoodItem
 {
 
-	public WhiteMacadamia(int par1)
+	public WhiteMacadamia(int id)
 	{
-		super(par1);
+		super(id, 1, 0, false);
 		// TODO Auto-generated constructor stub
 		setUnlocalizedName("White Macadamia");
 		setCreativeTab(CookieMod.cookieTab);

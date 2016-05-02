@@ -8,6 +8,7 @@ import java.io.File;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,6 +40,7 @@ import freshcaa.minecraft.block.SunTable;
 import freshcaa.minecraft.creativeTabs.CookieTab;
 import freshcaa.minecraft.gui.GuiHandler;
 import freshcaa.minecraft.item.Cookie;
+import freshcaa.minecraft.item.SelfSetFoodItem;
 import freshcaa.minecraft.item.SelfSetItem;
 import freshcaa.minecraft.tileEntity.TileEntitySunTable;
 import freshcaa.minecraft.world.MyBoneMeal_Event;
@@ -95,16 +97,16 @@ public class CookieMod
 	public static Cookie pb_Cookie;
 	public static Cookie wn_Cookie;
 	public static Cookie or_Cookie;
-	public static Item pecan;
-	public static SelfSetItem raisin;
-	public static SelfSetItem oats;
-	public static SelfSetItem whiteMacadamia;
-	public static SelfSetItem cookie_Dough;
-	public static SelfSetItem cc_Dough;
-	public static SelfSetItem or_Dough;
-	public static SelfSetItem pb_Dough;
-	public static SelfSetItem wm_Dough;
-	public static SelfSetItem wn_Dough;
+	public static SelfSetFoodItem pecan;
+	public static SelfSetFoodItem raisin;
+	public static SelfSetFoodItem oats;
+	public static SelfSetFoodItem whiteMacadamia;
+	public static SelfSetFoodItem cookie_Dough;
+	public static SelfSetFoodItem cc_Dough;
+	public static SelfSetFoodItem or_Dough;
+	public static SelfSetFoodItem pb_Dough;
+	public static SelfSetFoodItem wm_Dough;
+	public static SelfSetFoodItem wn_Dough;
 	public static Item peanutSeeds;
 	public static Item grapeSeeds;
 	
@@ -301,6 +303,12 @@ public class CookieMod
 				2F);
 		GameRegistry.addSmelting(grapeSeeds.itemID, new ItemStack(raisin, 1),
 				1F);
+		
+		//This is magic :D somehow this is Charcoal. 
+		GameRegistry.addSmelting(pecanLog.blockID, new ItemStack(Item.coal, 1, 1),
+				0.15F);
+		GameRegistry.addSmelting(macadamiaLog.blockID, new ItemStack(Item.coal, 1, 1),
+				0.15F);
 
 		//World Generation
 		GameRegistry.registerWorldGenerator(new WorldGeneratorDjf());
