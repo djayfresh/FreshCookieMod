@@ -43,7 +43,7 @@ public class GuiSunTable extends GuiContainer
 		
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize); 
 		
-		if(sunTableEntity.isBurning())
+		if(sunTableEntity.isInSun)
 		{
 			drawTexturedModalRect(guiLeft + 56, guiTop + 36, 176, 0, 14, 14); //Flame
 			drawTexturedModalRect(guiLeft + 54, guiTop + 51, 176, 31, 20, 20); //Sun

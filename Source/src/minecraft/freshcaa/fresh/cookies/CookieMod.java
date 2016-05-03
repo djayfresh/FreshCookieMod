@@ -259,10 +259,10 @@ public class CookieMod
 		
 		//Crops
 		GameRegistry.registerBlock(peanutPlant, "Peanut Plant");
-		OreDictionary.registerOre("cropPeanuts", peanutPlant);
+		OreDictionary.registerOre("cropPeanut", peanutPlant);
 		
 		GameRegistry.registerBlock(grapeVine, "Grape Vine");
-		OreDictionary.registerOre("cropGrapes", grapeVine);
+		OreDictionary.registerOre("cropGrape", grapeVine);
 
 		//Seeds
 		OreDictionary.registerOre("seedPeanut", peanutSeeds);
