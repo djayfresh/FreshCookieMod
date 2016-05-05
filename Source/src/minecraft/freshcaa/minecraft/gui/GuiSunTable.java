@@ -14,7 +14,7 @@ import freshcaa.minecraft.tileEntity.TileEntitySunTable;
 
 public class GuiSunTable extends GuiContainer
 {
-	public static final ResourceLocation texture = new ResourceLocation(CookieMod.modid + ":textures/gui/suntableGUI.png");
+	public static final ResourceLocation texture = new ResourceLocation(CookieMod.modid + ":textures/gui/SuntableGUI.png");
 	public TileEntitySunTable sunTableEntity;
 	
 	public GuiSunTable(InventoryPlayer inventoryPlayer, TileEntitySunTable entity)

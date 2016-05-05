@@ -1,5 +1,6 @@
 package freshcaa.fresh.cookies;
 import net.minecraft.client.renderer.texture.IconRegister;
+import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.item.Cookie;
  
 public class Cookie_WN extends Cookie {
@@ -13,7 +14,7 @@ public class Cookie_WN extends Cookie {
 	public void registerIcons(IconRegister reg) 
 	{ // Make sure to import IconRegister!
 		
-		if (itemID == CookieMod.wn_Cookie.itemID) //Cookie refers to the class we created and Amethyst is the type
+		if (itemID == ItemLoader.wn_Cookie.itemID) //Cookie refers to the class we created and Amethyst is the type
 		{ 
 			//The pictue filename inside 1.6.4.jar/minecraft/textures
 			this.itemIcon = reg.registerIcon(CookieMod.modid + ":Cookie_WN"); // You can also replace blockID and blockIcon with itemID and itemIcon

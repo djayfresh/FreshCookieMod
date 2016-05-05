@@ -18,6 +18,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.world.MacadamiaTreeWorldGenerator;
 import freshcaa.minecraft.world.PecanTreeWorldGenerator;
 
@@ -39,7 +40,7 @@ public class MyModSaplings extends BlockSapling
 	@SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
-        return CookieMod.pecanSapling.blockID == blockID? saplingIcon[0] : saplingIcon[1];
+        return ItemLoader.pecanSapling.blockID == blockID? saplingIcon[0] : saplingIcon[1];
     }
 
 	public void growTree(World par1World, int par2, int par3, int par4,
@@ -94,14 +95,14 @@ public class MyModSaplings extends BlockSapling
 				j1 = 0;
 				i1 = 0;
 				//Needs to be My own generator
-				object = CookieMod.pecanSapling.blockID == blockID ? new PecanTreeWorldGenerator(true, 4 + par5Random.nextInt(7), 3,
+				object = ItemLoader.pecanSapling.blockID == blockID ? new PecanTreeWorldGenerator(true, 4 + par5Random.nextInt(7), 3,
 						3, false) : new MacadamiaTreeWorldGenerator(true, 4 + par5Random.nextInt(7), 3,
 								3, false);
 			}
 		} else
 		{
 			//Needs to be My own generator
-			object = CookieMod.pecanSapling.blockID == blockID ? new PecanTreeWorldGenerator(true) : new MacadamiaTreeWorldGenerator(true);
+			object = ItemLoader.pecanSapling.blockID == blockID ? new PecanTreeWorldGenerator(true) : new MacadamiaTreeWorldGenerator(true);
 
 			if (par5Random.nextInt(10) == 0)
 			{

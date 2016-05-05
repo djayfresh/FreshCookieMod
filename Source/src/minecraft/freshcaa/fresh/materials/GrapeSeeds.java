@@ -3,6 +3,7 @@ package freshcaa.fresh.materials;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemSeeds;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class GrapeSeeds extends ItemSeeds
 {
@@ -17,7 +18,7 @@ public class GrapeSeeds extends ItemSeeds
 	
 	public void registerIcons(IconRegister reg)
 	{ // Make sure to import IconRegister!
-		if (itemID == CookieMod.grapeSeeds.itemID)
+		if (itemID == ItemLoader.grapeSeeds.itemID)
 		{
 			this.itemIcon = reg.registerIcon(CookieMod.modid + ":Grapes"); // You can also replace blockID and blockIcon with itemID and itemIcon
 		}

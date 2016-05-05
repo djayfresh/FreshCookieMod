@@ -21,6 +21,7 @@ import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.tileEntity.TileEntitySunTable;
 
 public class SunTable extends BlockContainer
@@ -73,7 +74,7 @@ public class SunTable extends BlockContainer
 
 	public int idDropped(int par1, Random random, int par3)
 	{
-		return CookieMod.sunTableIdle.blockID;
+		return ItemLoader.sunTableIdle.blockID;
 	}
 
 	public void onBlockAdded(World world, int x, int y, int z)
@@ -187,11 +188,11 @@ public class SunTable extends BlockContainer
 		keepInventory = true;
 		if(burning)
 		{
-			worldObj.setBlock(x, y, z, CookieMod.sunTable.blockID);
+			worldObj.setBlock(x, y, z, ItemLoader.sunTable.blockID);
 		}
 		else
 		{
-			worldObj.setBlock(x, y, z, CookieMod.sunTableIdle.blockID);
+			worldObj.setBlock(x, y, z, ItemLoader.sunTableIdle.blockID);
 		}
 		
 		keepInventory = false;
@@ -224,7 +225,7 @@ public class SunTable extends BlockContainer
 	 */
 	public int idPicked(World world, int x, int y, int z)
 	{
-		return CookieMod.sunTableIdle.blockID;
+		return ItemLoader.sunTableIdle.blockID;
 	}
 	
 	@Override

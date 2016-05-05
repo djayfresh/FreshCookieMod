@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.world.ColorizerLeaves;
 
 public class MyModLeafs extends BlockLeaves
@@ -39,10 +40,10 @@ public class MyModLeafs extends BlockLeaves
     
     public int idDropped(int par1, Random random, int par3)
     {
-    	if(blockID == CookieMod.pecanLeaf.blockID)
-    		return random.nextInt(10) <= 4 ? CookieMod.pecanSapling.blockID : CookieMod.pecan.itemID;
-    	if(blockID == CookieMod.macadamiaLeaf.blockID)
-    		return random.nextInt(10) <= 4 ? CookieMod.macadamiaSapling.blockID : CookieMod.whiteMacadamia.itemID;
+    	if(blockID == ItemLoader.pecanLeaf.blockID)
+    		return random.nextInt(10) <= 4 ? ItemLoader.pecanSapling.blockID : ItemLoader.pecan.itemID;
+    	if(blockID == ItemLoader.macadamiaLeaf.blockID)
+    		return random.nextInt(10) <= 4 ? ItemLoader.macadamiaSapling.blockID : ItemLoader.whiteMacadamia.itemID;
     	
         return Block.sapling.blockID;
     }
@@ -50,11 +51,11 @@ public class MyModLeafs extends BlockLeaves
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
-    	if(CookieMod.pecanLeaf.blockID == blockID)
+    	if(ItemLoader.pecanLeaf.blockID == blockID)
     	{
     		return iconArray[iconType][0];
     	}
-    	else if(CookieMod.macadamiaLeaf.blockID == blockID)
+    	else if(ItemLoader.macadamiaLeaf.blockID == blockID)
     	{
     		return iconArray[iconType][1];
     	}
@@ -75,11 +76,11 @@ public class MyModLeafs extends BlockLeaves
     {
         int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
  
-        if (CookieMod.pecanLeaf.blockID == blockID)
+        if (ItemLoader.pecanLeaf.blockID == blockID)
         {
             return ColorizerLeaves.getFoliageColorPecan();
         }
-        else if (CookieMod.macadamiaLeaf.blockID == blockID)
+        else if (ItemLoader.macadamiaLeaf.blockID == blockID)
         {
             return ColorizerLeaves.getFoliageColorMacadamia();
         }

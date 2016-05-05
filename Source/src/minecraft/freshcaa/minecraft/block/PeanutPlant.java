@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class PeanutPlant extends BlockCrops
 {
@@ -46,7 +47,7 @@ public class PeanutPlant extends BlockCrops
      */
     protected int getSeedItem()
     {
-        return CookieMod.peanutSeeds.itemID;
+        return ItemLoader.peanutSeeds.itemID;
     }
 
     /**
@@ -54,7 +55,7 @@ public class PeanutPlant extends BlockCrops
      */
     protected int getCropItem()
     {
-        return CookieMod.peanutSeeds.itemID;
+        return ItemLoader.peanutSeeds.itemID;
     }
     
     @SideOnly(Side.CLIENT)

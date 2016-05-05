@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class GrapeVine extends BlockCrops
 {
@@ -46,7 +47,7 @@ public class GrapeVine extends BlockCrops
      */
     protected int getSeedItem()
     {
-        return CookieMod.grapeSeeds.itemID;
+        return ItemLoader.grapeSeeds.itemID;
     }
 
     /**
@@ -54,7 +55,7 @@ public class GrapeVine extends BlockCrops
      */
     protected int getCropItem()
     {
-        return CookieMod.grapeSeeds.itemID;
+        return ItemLoader.grapeSeeds.itemID;
     }
     
     @SideOnly(Side.CLIENT)
