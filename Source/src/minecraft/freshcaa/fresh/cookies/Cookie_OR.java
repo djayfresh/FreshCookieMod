@@ -1,6 +1,7 @@
 package freshcaa.fresh.cookies;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.item.Cookie;
 
@@ -9,7 +10,7 @@ public class Cookie_OR extends Cookie
 
 	public Cookie_OR(int par1)
 	{
-		super(par1, 20, false); //Returns super constructor: par1 is ID
+		super(par1, ConfigLoader.oatmealRaisinCookieHeal, false); //Returns super constructor: par1 is ID
 		setUnlocalizedName("Oatmeal Raisin Cookie");
 		setCreativeTab(CookieMod.cookieTab); //Tells the game what creative mode tab it goes in
 	}

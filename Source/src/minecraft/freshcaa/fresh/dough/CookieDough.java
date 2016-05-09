@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.item.SelfSetFoodItem;
 import freshcaa.minecraft.item.SelfSetItem;
@@ -16,7 +17,10 @@ public class CookieDough extends SelfSetFoodItem
 		super(id, 1, 0, false );
 		setUnlocalizedName("Cookie Dough");
 		setCreativeTab(CookieMod.cookieTab);
-		setPotionEffect(Potion.poison.id, 5, 0, 0.4F);
+		if(ConfigLoader.isCookieDoughPoisonous)
+		{
+			setPotionEffect(Potion.poison.id, 5, 0, 0.4F);
+		}
 		// TODO Auto-generated constructor stub
 	}
 

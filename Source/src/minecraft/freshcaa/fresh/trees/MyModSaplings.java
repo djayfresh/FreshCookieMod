@@ -34,7 +34,7 @@ public class MyModSaplings extends BlockSapling
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F,
 				0.5F + f);
-		setHardness(0.5f);
+		setHardness(0.1f);
 	}
 
 	@SideOnly(Side.CLIENT)

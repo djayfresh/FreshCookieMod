@@ -1,12 +1,13 @@
 package freshcaa.fresh.cookies;
 import net.minecraft.client.renderer.texture.IconRegister;
+import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.item.Cookie;
  
 public class Cookie_WN extends Cookie {
 
 	public Cookie_WN(int par1) {
-	super(par1, 5, true); //Returns super constructor: par1 is ID
+	super(par1, ConfigLoader.pecanCookieHeal, true); //Returns super constructor: par1 is ID
 	setUnlocalizedName("Pecan Cookie");
 	setCreativeTab(CookieMod.cookieTab); }//Tells the game what creative mode tab it goes in
 

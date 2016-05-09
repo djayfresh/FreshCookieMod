@@ -92,14 +92,13 @@ public class CookieMod
 		guiHandler = new GuiHandler();
 		GameRegistry.registerTileEntity(TileEntitySunTable.class, "tileEntitySunTable");
 	}
-	
-		
+			
 	private static void AddWorldGen()
 	{
 		GameRegistry.registerWorldGenerator(new WorldGeneratorDjf());
-		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.peanutSeeds), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.grapeSeeds), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.macadamiaSapling), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.pecanSapling), 10);
+		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.peanutSeeds), ConfigLoader.peanutSeedDropWeight);
+		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.grapeSeeds), ConfigLoader.grapeSeedDropWeight);
+		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.macadamiaSapling), ConfigLoader.macadamiaSaplingDropWeight);
+		MinecraftForge.addGrassSeed(new ItemStack(ItemLoader.pecanSapling), ConfigLoader.pecanSaplingDropWeight);
 	}
 }

@@ -1,12 +1,13 @@
 package freshcaa.fresh.cookies;
 import net.minecraft.client.renderer.texture.IconRegister;
+import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
 import freshcaa.minecraft.item.Cookie;
  
 public class Cookie_WM extends Cookie {
 
 	public Cookie_WM(int par1) {
-	super(par1, 5, false); //Returns super constructor: par1 is ID
+	super(par1, ConfigLoader.macadamiaCookieHeal, false); //Returns super constructor: par1 is ID
 	setUnlocalizedName("White Macadamia Cookie");
 	setCreativeTab(CookieMod.cookieTab); }//Tells the game what creative mode tab it goes in
 

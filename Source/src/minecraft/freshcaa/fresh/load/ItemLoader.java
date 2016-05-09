@@ -1,6 +1,5 @@
 package freshcaa.fresh.load;
 
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
@@ -76,7 +75,7 @@ public class ItemLoader
 	public static void Load()
 	{
 		AddItems();
-		
+		RegisterItems();
 		AddRecipes();
 		AddLanguages();
 	}
@@ -154,6 +153,9 @@ public class ItemLoader
 		GameRegistry.registerBlock(macadamiaLog, "MacadamiaLog");
 		GameRegistry.registerBlock(macadamiaSapling, "MacadamiaSapling");
 		
+		OreDictionary.registerOre("logWood", pecanLog);
+		OreDictionary.registerOre("logWood", macadamiaLog);
+		
 		//Materials
 		GameRegistry.registerItem(peanutSeeds, "PecanSeeds", CookieMod.modid);
 		GameRegistry.registerItem(grapeSeeds, "GrapeSeeds", CookieMod.modid);
@@ -189,6 +191,12 @@ public class ItemLoader
 				new Object[] { cookie_Dough, pecan});
 		GameRegistry.addShapelessRecipe(new ItemStack(wm_Dough, 4),
 				new Object[] { cookie_Dough, whiteMacadamia});
+		
+		//Place Holder for wood
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 4), 
+				new Object[]{ pecanLog});
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 4), 
+				new Object[]{ macadamiaLog});
 
 		//Smelting
 		GameRegistry.addSmelting(cookie_Dough.itemID, new ItemStack(

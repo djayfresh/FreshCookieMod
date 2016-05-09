@@ -29,7 +29,7 @@ public class MyModLeafs extends BlockLeaves
     {
     	super(par1);
         this.setTickRandomly(true);
-        setHardness(0.01f);
+        setHardness(0.2f);
         setStepSound(soundGrassFootstep);
     }
     
@@ -41,9 +41,9 @@ public class MyModLeafs extends BlockLeaves
     public int idDropped(int par1, Random random, int par3)
     {
     	if(blockID == ItemLoader.pecanLeaf.blockID)
-    		return random.nextInt(10) <= 4 ? ItemLoader.pecanSapling.blockID : ItemLoader.pecan.itemID;
+    		return random.nextInt(10) <= 5 ? ItemLoader.pecanSapling.blockID : ItemLoader.pecan.itemID;
     	if(blockID == ItemLoader.macadamiaLeaf.blockID)
-    		return random.nextInt(10) <= 4 ? ItemLoader.macadamiaSapling.blockID : ItemLoader.whiteMacadamia.itemID;
+    		return random.nextInt(10) <= 5 ? ItemLoader.macadamiaSapling.blockID : ItemLoader.whiteMacadamia.itemID;
     	
         return Block.sapling.blockID;
     }
