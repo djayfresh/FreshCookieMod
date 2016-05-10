@@ -1,9 +1,12 @@
 package freshcaa.fresh.load;
 
 import net.minecraftforge.common.Configuration;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
+/**
+ * ConfigLoader - Singleton. Using the current preloading event, create/read the current configuration file. 
+ * Adding properties to this class must be made static. 
+ */
 public class ConfigLoader
 {
 	public static int cc_CookieID;

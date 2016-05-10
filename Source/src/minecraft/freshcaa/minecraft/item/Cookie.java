@@ -10,8 +10,7 @@ public abstract class Cookie extends ItemFood
 	{
 		super(itemID, healAmount, wolfLove);
 		// TODO Auto-generated constructor stub
-		setCreativeTab(CreativeTabs.tabFood); // Tells the game what creative
-												// mode tab it goes in
+		setCreativeTab(CreativeTabs.tabFood); // Tells the game what creative mode tab it goes in
 	}
 
 	/**

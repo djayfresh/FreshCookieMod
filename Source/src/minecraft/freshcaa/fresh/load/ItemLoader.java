@@ -33,6 +33,12 @@ import freshcaa.minecraft.block.SunTable;
 import freshcaa.minecraft.item.Cookie;
 import freshcaa.minecraft.item.SelfSetFoodItem;
 
+/**
+ * ItemLoader - Singleton. Uses ConfigLoader to grab ids set during load.
+ * Add new items here to keep one place for all items registered
+ * 
+ * @TODO Break out blocks into its own loader
+ */
 public class ItemLoader
 {
 	//Cookies

@@ -22,7 +22,7 @@ public class MyModLogs extends BlockLog
 	public MyModLogs(int par1)
 	{
 		super(par1);
-		setHardness(1.5f);
+		setHardness(2.0f);
 	}
 
 	@Override

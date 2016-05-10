@@ -136,7 +136,7 @@ public class TileEntitySunTable extends TileEntity implements ISidedInventory
 	public boolean isBurning()
 	{
 		float lightValue = worldObj.getBlockLightValue(xCoord, yCoord+1, zCoord);
-		//FMLLog.log("FreshCAA", Level.FINE, "BrightnessValue: " + lightValue);
+		//System.out.println("BrightnessValue: " + lightValue);
 		return worldObj.canBlockSeeTheSky(xCoord, yCoord+2, zCoord) && lightValue >= 14;
 	}
 
