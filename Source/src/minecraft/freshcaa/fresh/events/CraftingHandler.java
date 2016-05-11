@@ -42,6 +42,11 @@ public class CraftingHandler implements ICraftingHandler
 		{
 			player.triggerAchievement(ItemLoader.firstCookieAchievement);
 		}
+		
+		if(itemID == ItemLoader.raisin.itemID)
+		{
+			player.triggerAchievement(ItemLoader.raisinTheRoofAchievement);
+		}
 	}
 
 }

@@ -54,6 +54,7 @@ public class ConfigLoader
 	public static int gettingDirtyAchievement;
 	public static int powerOfTheSunAchievement;
 	public static int firstCookieAchievement;
+	public static int raisinTheRoofAchievement;
 
 	private static String CategoryItem = "item";
 	private static String CategoryBlock = "block";
@@ -88,6 +89,7 @@ public class ConfigLoader
 		gettingDirtyAchievement = config.get(CategoryAchievement, "Getting Your Hands Dirty", 201).getInt();
 		powerOfTheSunAchievement = config.get(CategoryAchievement, "Power Of The Sun", 202).getInt();
 		firstCookieAchievement = config.get(CategoryAchievement, "First Cookie", 203).getInt();
+		raisinTheRoofAchievement = config.get(CategoryAchievement, "Raisin The Roof", 204).getInt();
 	}
 
 	private static void loadCookieData(Configuration config)

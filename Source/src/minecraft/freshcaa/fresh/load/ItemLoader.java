@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
+import net.minecraft.stats.StatBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -93,6 +94,7 @@ public class ItemLoader
 	public static AchievementBase gettingDirtyAchievement;
 	public static AchievementBase powerOfTheSunAchievement;
 	public static AchievementBase firstCookieAchievement;
+	public static AchievementBase raisinTheRoofAchievement;
 	public static AchievementPage cookieAchievementPage;
 	
 	public static void Load()
@@ -120,6 +122,7 @@ public class ItemLoader
 		gettingDirtyAchievement.registerAchievement();
 		powerOfTheSunAchievement.registerAchievement();
 		firstCookieAchievement.registerAchievement();
+		raisinTheRoofAchievement.registerAchievement();
 		
 		AchievementPage.registerAchievementPage(cookieAchievementPage);
 	}
@@ -134,6 +137,8 @@ public class ItemLoader
 				"powerofthesun", -3, -2, new ItemStack(ItemLoader.sunTable), AchievementList.diamonds);
 		firstCookieAchievement = new FirstCookieAchievement(ConfigLoader.firstCookieAchievement, 
 				"firstcookie", 2, -2, new ItemStack(Item.cookie), gettingDirtyAchievement);
+		raisinTheRoofAchievement = new FirstCookieAchievement(ConfigLoader.raisinTheRoofAchievement, 
+				"raisintheroof", 2, 1, new ItemStack(Item.cookie), gettingDirtyAchievement);
 		
 		cookieAchievementPage = new CookieAchievementPage(new Achievement[] {
 				gettingStartedAchievement, 
@@ -321,16 +326,23 @@ public class ItemLoader
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
 		
 		//achievements
-		addStringLocalization("achievement." + CookieMod.modid + ".gettingstarted", "Gettings Started");
-		addStringLocalization("achievement." + CookieMod.modid + ".gettingstarted.desc", "Get some supplies to create some cookeis");
-		addStringLocalization("achievement." + CookieMod.modid + ".gettingdirty", "Gettings Your Hands Dirty");
-		addStringLocalization("achievement." + CookieMod.modid + ".gettingdirty.desc", "Mix it up, that's it! Use your hands!");
-		addStringLocalization("achievement." + CookieMod.modid + ".powerofthesun", "Power of The Sun");
-		addStringLocalization("achievement." + CookieMod.modid + ".powerofthesun.desc", "Dry some grapes with the power of the sun");
-		addStringLocalization("achievement." + CookieMod.modid + ".firstcookie", "First Cookie");
-		addStringLocalization("achievement." + CookieMod.modid + ".firstcookie.desc", "You've got yourself a \"healthy\" snack");
+		addAchievementLocalization("gettingstarted", "Gettings Started", "Get some supplies to create some cookeis");
+		addAchievementLocalization("gettingdirty", "Gettings Your Hands Dirty", "Mix it up, that's it! Use your hands!");
+		addAchievementLocalization("powerofthesun", "Power of The Sun", "Dry some grapes with the power of the sun");
+		addAchievementLocalization("firstcookie", "First Cookie", "You've got yourself a \"healthy\" snack");
+		addAchievementLocalization("raisintheroof", "Raisin The Roof", "Yumm, dry grapes");
+	
 	}
 
+	private static void addAchievementLocalization(String key, String name, String description)
+	{
+		LanguageRegistry.instance()
+			.addStringLocalization("achievement." + CookieMod.modid + "." + key, name);
+		
+		LanguageRegistry.instance()
+			.addStringLocalization("achievement." + CookieMod.modid + "." + key + ".desc", description);
+	}
+	
 	private static void addStringLocalization(String key, String name)
 	{
 		LanguageRegistry.instance().addStringLocalization(key, name);
