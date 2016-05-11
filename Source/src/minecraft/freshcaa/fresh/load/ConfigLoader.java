@@ -49,12 +49,18 @@ public class ConfigLoader
 	public static int peanutButterCookieHeal;
 	public static int pecanCookieHeal;
 	public static int macadamiaCookieHeal;
+	
+	public static int gettingStartedAchievement;
+	public static int gettingDirtyAchievement;
+	public static int powerOfTheSunAchievement;
+	public static int firstCookieAchievement;
 
 	private static String CategoryItem = "item";
 	private static String CategoryBlock = "block";
 	private static String CategoryMaterial = "material";
 	private static String CategoryOther = "other";
 	private static String CategoryFood = "food";
+	private static String CategoryAchievement = "achievement";
 	
 	private static int ConfigOffsetValue = 256;
 	
@@ -71,7 +77,17 @@ public class ConfigLoader
 		
 		loadCookieData(config);
 		
+		loadAchievements(config);
+		
 		config.save();
+	}
+
+	private static void loadAchievements(Configuration config)
+	{
+		gettingStartedAchievement = config.get(CategoryAchievement, "Getting Started", 200).getInt();
+		gettingDirtyAchievement = config.get(CategoryAchievement, "Getting Your Hands Dirty", 201).getInt();
+		powerOfTheSunAchievement = config.get(CategoryAchievement, "Power Of The Sun", 202).getInt();
+		firstCookieAchievement = config.get(CategoryAchievement, "First Cookie", 203).getInt();
 	}
 
 	private static void loadCookieData(Configuration config)

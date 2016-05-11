@@ -7,6 +7,6 @@ public class EventRegister
 	public static void Register() 
 	{
 		MinecraftForge.EVENT_BUS.register(new BoneMealEvent());
-		MinecraftForge.EVENT_BUS.register(new AchivementsEvent());
+		MinecraftForge.EVENT_BUS.register(new AchievementsEvent());
 	}
 }

@@ -1,11 +1,20 @@
 package freshcaa.fresh.load;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
+import net.minecraft.stats.AchievementList;
+import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import freshcaa.fresh.achievements.AchievementBase;
+import freshcaa.fresh.achievements.CookieAchievementPage;
+import freshcaa.fresh.achievements.FirstCookieAchievement;
+import freshcaa.fresh.achievements.GettingDirtyAchievement;
+import freshcaa.fresh.achievements.GettingStartedAchievement;
+import freshcaa.fresh.achievements.PowerOfTheSunAchievement;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.cookies.Cookie_CC;
 import freshcaa.fresh.cookies.Cookie_OR;
@@ -18,6 +27,7 @@ import freshcaa.fresh.dough.OR_Dough;
 import freshcaa.fresh.dough.PB_Dough;
 import freshcaa.fresh.dough.WM_Dough;
 import freshcaa.fresh.dough.WN_Dough;
+import freshcaa.fresh.events.CraftingHandler;
 import freshcaa.fresh.materials.GrapeSeeds;
 import freshcaa.fresh.materials.Oats;
 import freshcaa.fresh.materials.PeanutSeed;
@@ -78,14 +88,61 @@ public class ItemLoader
 	public static Block macadamiaLeaf;
 	public static Block macadamiaSapling;
 	
+	//Achievements
+	public static AchievementBase gettingStartedAchievement;
+	public static AchievementBase gettingDirtyAchievement;
+	public static AchievementBase powerOfTheSunAchievement;
+	public static AchievementBase firstCookieAchievement;
+	public static AchievementPage cookieAchievementPage;
+	
 	public static void Load()
 	{
 		AddItems();
 		RegisterItems();
+		
+		AddAchievements();
+		RegisterAchievements();
+		
+		RegisterOther();
+		
 		AddRecipes();
 		AddLanguages();
 	}
 	
+	private static void RegisterOther()
+	{
+		GameRegistry.registerCraftingHandler(new CraftingHandler());
+	}
+
+	private static void RegisterAchievements()
+	{
+		gettingStartedAchievement.registerAchievement();
+		gettingDirtyAchievement.registerAchievement();
+		powerOfTheSunAchievement.registerAchievement();
+		firstCookieAchievement.registerAchievement();
+		
+		AchievementPage.registerAchievementPage(cookieAchievementPage);
+	}
+
+	private static void AddAchievements()
+	{
+		gettingStartedAchievement = new GettingStartedAchievement(ConfigLoader.gettingStartedAchievement, 
+				"gettingstarted", 0, 0, new ItemStack(Item.wheat));
+		gettingDirtyAchievement = new GettingDirtyAchievement(ConfigLoader.gettingDirtyAchievement, 
+				"gettingdirty", 2, 0, new ItemStack(ItemLoader.cookie_Dough), gettingStartedAchievement);
+		powerOfTheSunAchievement = new PowerOfTheSunAchievement(ConfigLoader.powerOfTheSunAchievement, 
+				"powerofthesun", -3, -2, new ItemStack(ItemLoader.sunTable), AchievementList.diamonds);
+		firstCookieAchievement = new FirstCookieAchievement(ConfigLoader.firstCookieAchievement, 
+				"firstcookie", 2, -2, new ItemStack(Item.cookie), gettingDirtyAchievement);
+		
+		cookieAchievementPage = new CookieAchievementPage(new Achievement[] {
+				gettingStartedAchievement, 
+				gettingDirtyAchievement,
+				firstCookieAchievement,
+				powerOfTheSunAchievement
+			});
+	}
+
 	private static void AddItems() 
 	{
 		//Cookies
@@ -229,8 +286,8 @@ public class ItemLoader
 	
 	private static void AddLanguages()
 	{
-		LanguageRegistry.instance().addStringLocalization("container.SunTable", "Sun Table");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.Cookies", "en_US", "Fresh Cookies");
+		addStringLocalization("container.SunTable", "Sun Table");
+		addStringLocalization("itemGroup.Cookies", "Fresh Cookies");
 		//items
 		//Using the items name to add for the registry
 		LanguageRegistry.addName(pb_Cookie, pb_Cookie.getItemName()); //Cookie is are item type 
@@ -262,5 +319,20 @@ public class ItemLoader
 		LanguageRegistry.addName(macadamiaLeaf, "Macadamia Leaf");
 		LanguageRegistry.addName(macadamiaLog, "Macadamia Log");
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
+		
+		//achievements
+		addStringLocalization("achievement." + CookieMod.modid + ".gettingstarted", "Gettings Started");
+		addStringLocalization("achievement." + CookieMod.modid + ".gettingstarted.desc", "Get some supplies to create some cookeis");
+		addStringLocalization("achievement." + CookieMod.modid + ".gettingdirty", "Gettings Your Hands Dirty");
+		addStringLocalization("achievement." + CookieMod.modid + ".gettingdirty.desc", "Mix it up, that's it! Use your hands!");
+		addStringLocalization("achievement." + CookieMod.modid + ".powerofthesun", "Power of The Sun");
+		addStringLocalization("achievement." + CookieMod.modid + ".powerofthesun.desc", "Dry some grapes with the power of the sun");
+		addStringLocalization("achievement." + CookieMod.modid + ".firstcookie", "First Cookie");
+		addStringLocalization("achievement." + CookieMod.modid + ".firstcookie.desc", "You've got yourself a \"healthy\" snack");
+	}
+
+	private static void addStringLocalization(String key, String name)
+	{
+		LanguageRegistry.instance().addStringLocalization(key, name);
 	}
 }
