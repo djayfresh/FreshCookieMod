@@ -21,5 +21,15 @@ public class AchievementsEvent
 		if(itemId == Item.wheat.itemID || itemId == Item.egg.itemID){
 			event.entityPlayer.triggerAchievement(ItemLoader.gettingStartedAchievement);
 		}
+		
+		if(itemId == ItemLoader.pecan.itemID) 
+		{
+			event.entityPlayer.triggerAchievement(ItemLoader.pecanHarvestAchievement);
+		}
+		
+		if(itemId == ItemLoader.whiteMacadamia.itemID) 
+		{
+			event.entityPlayer.triggerAchievement(ItemLoader.macadamiaDanceAchievement);
+		}
 	}
 }

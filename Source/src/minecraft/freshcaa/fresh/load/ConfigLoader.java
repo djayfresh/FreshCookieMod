@@ -55,6 +55,8 @@ public class ConfigLoader
 	public static int powerOfTheSunAchievement;
 	public static int firstCookieAchievement;
 	public static int raisinTheRoofAchievement;
+	public static int pecanHarvestAchievement;
+	public static int macadamiaDanceAchievement;
 
 	private static String CategoryItem = "item";
 	private static String CategoryBlock = "block";
@@ -90,6 +92,8 @@ public class ConfigLoader
 		powerOfTheSunAchievement = config.get(CategoryAchievement, "Power Of The Sun", 202).getInt();
 		firstCookieAchievement = config.get(CategoryAchievement, "First Cookie", 203).getInt();
 		raisinTheRoofAchievement = config.get(CategoryAchievement, "Raisin The Roof", 204).getInt();
+		pecanHarvestAchievement = config.get(CategoryAchievement, "Pecan Harvest", 205).getInt();
+		macadamiaDanceAchievement = config.get(CategoryAchievement, "Macadamia Dance", 206).getInt();
 	}
 
 	private static void loadCookieData(Configuration config)

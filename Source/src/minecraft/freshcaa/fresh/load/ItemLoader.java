@@ -15,6 +15,7 @@ import freshcaa.fresh.achievements.CookieAchievementPage;
 import freshcaa.fresh.achievements.FirstCookieAchievement;
 import freshcaa.fresh.achievements.GettingDirtyAchievement;
 import freshcaa.fresh.achievements.GettingStartedAchievement;
+import freshcaa.fresh.achievements.PecanHarvestAchievement;
 import freshcaa.fresh.achievements.PowerOfTheSunAchievement;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.cookies.Cookie_CC;
@@ -90,12 +91,14 @@ public class ItemLoader
 	public static Block macadamiaSapling;
 	
 	//Achievements
+	public static AchievementPage cookieAchievementPage;
 	public static AchievementBase gettingStartedAchievement;
 	public static AchievementBase gettingDirtyAchievement;
 	public static AchievementBase powerOfTheSunAchievement;
 	public static AchievementBase firstCookieAchievement;
 	public static AchievementBase raisinTheRoofAchievement;
-	public static AchievementPage cookieAchievementPage;
+	public static AchievementBase pecanHarvestAchievement;
+	public static AchievementBase macadamiaDanceAchievement;
 	
 	public static void Load()
 	{
@@ -123,6 +126,8 @@ public class ItemLoader
 		powerOfTheSunAchievement.registerAchievement();
 		firstCookieAchievement.registerAchievement();
 		raisinTheRoofAchievement.registerAchievement();
+		pecanHarvestAchievement.registerAchievement();
+		macadamiaDanceAchievement.registerAchievement();
 		
 		AchievementPage.registerAchievementPage(cookieAchievementPage);
 	}
@@ -138,13 +143,20 @@ public class ItemLoader
 		firstCookieAchievement = new FirstCookieAchievement(ConfigLoader.firstCookieAchievement, 
 				"firstcookie", 2, -2, new ItemStack(Item.cookie), gettingDirtyAchievement);
 		raisinTheRoofAchievement = new FirstCookieAchievement(ConfigLoader.raisinTheRoofAchievement, 
-				"raisintheroof", 2, 1, new ItemStack(Item.cookie), gettingDirtyAchievement);
+				"raisintheroof", 4, 1, new ItemStack(raisin), gettingDirtyAchievement);
+		pecanHarvestAchievement = new PecanHarvestAchievement(ConfigLoader.pecanHarvestAchievement, 
+				"pecanharvest", -1, 2, new ItemStack(pecan), gettingStartedAchievement);
+		macadamiaDanceAchievement = new PecanHarvestAchievement(ConfigLoader.macadamiaDanceAchievement, 
+				"macadamiaharvest", 1, 2, new ItemStack(whiteMacadamia), gettingStartedAchievement);
 		
 		cookieAchievementPage = new CookieAchievementPage(new Achievement[] {
 				gettingStartedAchievement, 
 				gettingDirtyAchievement,
 				firstCookieAchievement,
-				powerOfTheSunAchievement
+				powerOfTheSunAchievement,
+				raisinTheRoofAchievement,
+				pecanHarvestAchievement,
+				macadamiaDanceAchievement
 			});
 	}
 
@@ -244,20 +256,21 @@ public class ItemLoader
 	{
 		//crafting
 		GameRegistry.addRecipe(new ItemStack(sunTableIdle,1), "wgw", "gdg", "wgw", 'w', Item.stick, 'g', Item.ingotGold, 'd', Item.diamond);
+		
 		GameRegistry.addShapelessRecipe(new ItemStack(cookie_Dough, 4),
 				new Object[] { Item.egg, Item.sugar, Item.wheat });
-		GameRegistry.addShapelessRecipe(new ItemStack(cc_Dough, 4),
+		GameRegistry.addShapelessRecipe(new ItemStack(cc_Dough, 1),
 				new Object[] { cookie_Dough,
 						new ItemStack(Item.dyePowder, 4, 3) });
-		GameRegistry.addShapelessRecipe(new ItemStack(or_Dough, 4),
+		GameRegistry.addShapelessRecipe(new ItemStack(or_Dough, 1),
 				new Object[] { cookie_Dough, raisin, oats });
-		GameRegistry.addShapelessRecipe(new ItemStack(pb_Dough, 4),
+		GameRegistry.addShapelessRecipe(new ItemStack(pb_Dough, 1),
 				new Object[] { cookie_Dough, peanutSeeds });
 		GameRegistry.addShapelessRecipe(new ItemStack(oats, 2),
 				new Object[] { Item.wheat });
-		GameRegistry.addShapelessRecipe(new ItemStack(wn_Dough, 4),
+		GameRegistry.addShapelessRecipe(new ItemStack(wn_Dough, 1),
 				new Object[] { cookie_Dough, pecan});
-		GameRegistry.addShapelessRecipe(new ItemStack(wm_Dough, 4),
+		GameRegistry.addShapelessRecipe(new ItemStack(wm_Dough, 1),
 				new Object[] { cookie_Dough, whiteMacadamia});
 		
 		//Place Holder for wood
@@ -331,7 +344,8 @@ public class ItemLoader
 		addAchievementLocalization("powerofthesun", "Power of The Sun", "Dry some grapes with the power of the sun");
 		addAchievementLocalization("firstcookie", "First Cookie", "You've got yourself a \"healthy\" snack");
 		addAchievementLocalization("raisintheroof", "Raisin The Roof", "Yumm, dry grapes");
-	
+		addAchievementLocalization("pecanharvest", "Pecan Harvest", "'Chop' 'Chop', Pecan Harvest Time");
+		addAchievementLocalization("macadamiaharvest", "Macadamia Dance", "Do the Macadamia");
 	}
 
 	private static void addAchievementLocalization(String key, String name, String description)
