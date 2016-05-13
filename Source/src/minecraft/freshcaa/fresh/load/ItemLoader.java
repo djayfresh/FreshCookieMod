@@ -1,13 +1,20 @@
 package freshcaa.fresh.load;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.stats.StatBase;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.event.terraingen.WorldTypeEvent.BiomeSize;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import freshcaa.fresh.achievements.AchievementBase;
@@ -29,6 +36,8 @@ import freshcaa.fresh.dough.OR_Dough;
 import freshcaa.fresh.dough.PB_Dough;
 import freshcaa.fresh.dough.WM_Dough;
 import freshcaa.fresh.dough.WN_Dough;
+import freshcaa.fresh.entity.CommonEntity;
+import freshcaa.fresh.entity.FactoryWorker;
 import freshcaa.fresh.events.CraftingHandler;
 import freshcaa.fresh.materials.GrapeSeeds;
 import freshcaa.fresh.materials.Oats;
@@ -100,6 +109,10 @@ public class ItemLoader
 	public static AchievementBase pecanHarvestAchievement;
 	public static AchievementBase macadamiaDanceAchievement;
 	
+	//Entity
+    @SidedProxy(clientSide = "freshcaa.fresh.entity.FactoryWorkerEntity", serverSide = "freshcaa.fresh.entity.CommonEntity")
+	public static CommonEntity factoryWorkerProxy;
+	
 	public static void Load()
 	{
 		AddItems();
@@ -108,15 +121,37 @@ public class ItemLoader
 		AddAchievements();
 		RegisterAchievements();
 		
+		RegisterEntities();
+		
 		RegisterOther();
 		
 		AddRecipes();
 		AddLanguages();
 	}
 	
+	private static void RegisterEntities()
+	{
+		int entityIds = 0;
+		RegisterEntity(FactoryWorker.class, "Factory Worker", entityIds, 5651507, 12040119);
+		entityIds++;
+		BiomeGenBase[] spawnBiomes = new BiomeGenBase[]{BiomeGenBase.desert, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.forest};
+		EntityRegistry.addSpawn(FactoryWorker.class, 20, 10, 120, EnumCreatureType.creature, spawnBiomes);
+		factoryWorkerProxy.registerRenderThings();
+		factoryWorkerProxy.registerSound();		
+	}
+
+	private static void RegisterEntity(Class <?extends EntityLiving> entityClass, String mobName, int entityId, int backgroundColor, int foregroundColor)
+	{
+		String entityName = mobName.toLowerCase().replace(" ", "");
+		EntityRegistry.registerModEntity(entityClass, entityName, entityId, CookieMod.instance, 80, 1, true);
+		EntityList.addMapping(FactoryWorker.class, entityName, entityId, backgroundColor, foregroundColor);
+		
+		LanguageRegistry.instance().addStringLocalization("entity." + entityName + ".name", mobName);
+	}
+	
 	private static void RegisterOther()
 	{
-		GameRegistry.registerCraftingHandler(new CraftingHandler());
+		GameRegistry.registerCraftingHandler(new CraftingHandler());		
 	}
 
 	private static void RegisterAchievements()
