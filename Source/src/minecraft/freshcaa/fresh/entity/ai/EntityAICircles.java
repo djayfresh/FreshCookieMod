@@ -1,8 +1,12 @@
 package freshcaa.fresh.entity.ai;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.Vec3;
 
 public class EntityAICircles extends EntityAIBase
@@ -17,6 +21,7 @@ public class EntityAICircles extends EntityAIBase
 		this.entity = entity;
 		this.speed = speed;
 		this.maxWalkDistance = maxWalkDistance;
+		this.setMutexBits(12);
 	}
 	
 	@Override
@@ -32,7 +37,7 @@ public class EntityAICircles extends EntityAIBase
 	    	System.out.println("Set Target: " + String.format("%1$.3f, %2$.3f, %3$.3f", target.xCoord, target.yCoord, target.zCoord));
 	    	this.entity.getLookHelper().setLookPosition(posX, this.entity.posY + 2, posZ, 30.0F, 30.0F);
 		}
-		System.out.println("should execute");
+		
 		return this.entity.worldObj.isDaytime() && target != null;
 	}
 
@@ -51,12 +56,6 @@ public class EntityAICircles extends EntityAIBase
 	@Override
     public void startExecuting() 
 	{
-    	boolean resetPath = this.entity.getNavigator().tryMoveToXYZ(target.xCoord, target.yCoord, target.zCoord, speed);
-    	
-    	if(!this.entity.getNavigator().noPath() || resetPath)
-    	{
-    		System.out.println("Path reset");
-    		target = null;
-    	}
+    	this.entity.getNavigator().tryMoveToXYZ(target.xCoord, target.yCoord, target.zCoord, speed);
     }
 }

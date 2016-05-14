@@ -2,6 +2,7 @@ package freshcaa.fresh.entity;
 
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.entity.ai.EntityAICircles;
+import freshcaa.fresh.entity.ai.EntityAIFindChest;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
@@ -39,6 +40,7 @@ import net.minecraft.world.World;
 public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 {
 	public static String NAME = "factoryworker";
+	protected double movementSpeed;
 	protected int randomTickDivider;
 	
     public FactoryWorker(World par1World)
@@ -47,7 +49,10 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         this.setSize(0.9F, 1.3F);
         this.getNavigator().setAvoidsWater(true);
         this.getNavigator().setBreakDoors(true);
-        this.tasks.addTask(0, new EntityAICircles(this, SharedMonsterAttributes.movementSpeed.getDefaultValue(), 20.0f));
+        this.movementSpeed = SharedMonsterAttributes.movementSpeed.getDefaultValue();
+        this.tasks.addTask(0, new EntityAIFindChest(this, this.movementSpeed, 20.0f));
+        this.tasks.addTask(1, new EntityAICircles(this, this.movementSpeed, 20.0f));
+                
     }
 
     @Override
