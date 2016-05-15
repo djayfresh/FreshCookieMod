@@ -51,7 +51,6 @@ public class MyModLogs extends BlockLog
 			List par3List)
 	{
 		par3List.add(new ItemStack(par1, 1, 0));//the last value represends the index into woodType
-		par3List.add(new ItemStack(par1, 1, 1));//the last value represends the index into woodType
 	}
 
 	@SideOnly(Side.CLIENT)

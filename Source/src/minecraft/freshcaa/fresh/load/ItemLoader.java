@@ -1,18 +1,5 @@
 package freshcaa.fresh.load;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
-import net.minecraft.stats.AchievementList;
-import net.minecraft.stats.StatBase;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.AchievementPage;
-import net.minecraftforge.event.terraingen.WorldTypeEvent.BiomeSize;
-import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -54,6 +41,17 @@ import freshcaa.minecraft.block.PeanutPlant;
 import freshcaa.minecraft.block.SunTable;
 import freshcaa.minecraft.item.Cookie;
 import freshcaa.minecraft.item.SelfSetFoodItem;
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.oredict.OreDictionary;
 
 /**
  * ItemLoader - Singleton. Uses ConfigLoader to grab ids set during load.
@@ -94,9 +92,11 @@ public class ItemLoader
 	
 	//Trees
 	public static Block pecanLog;
+	public static Block pecanPlank;
 	public static Block pecanLeaf;
 	public static Block pecanSapling;
 	public static Block macadamiaLog;
+	public static Block macadamiaPlank;
 	public static Block macadamiaLeaf;
 	public static Block macadamiaSapling;
 	
@@ -230,7 +230,7 @@ public class ItemLoader
 			.setUnlocalizedName("Pecan Log")
 			.setCreativeTab(CookieMod.cookieTab);
 		
-		pecanLog = new MyModWood(ConfigLoader.pecanPlankID)
+		pecanPlank = new MyModWood(ConfigLoader.pecanPlankID)
 				.setUnlocalizedName("Pecan Plank")
 				.setCreativeTab(CookieMod.cookieTab);
 		
@@ -245,7 +245,7 @@ public class ItemLoader
 			.setUnlocalizedName("Macadamia Log")
 			.setCreativeTab(CookieMod.cookieTab);
 		
-		macadamiaLog = new MyModWood(ConfigLoader.macadamiaPlankID)
+		macadamiaPlank = new MyModWood(ConfigLoader.macadamiaPlankID)
 				.setUnlocalizedName("Macadamia Plank")
 				.setCreativeTab(CookieMod.cookieTab);
 		
@@ -276,6 +276,9 @@ public class ItemLoader
 		GameRegistry.registerBlock(macadamiaLeaf, "MacadamiaLeaf");
 		GameRegistry.registerBlock(macadamiaLog, "MacadamiaLog");
 		GameRegistry.registerBlock(macadamiaSapling, "MacadamiaSapling");
+		
+		GameRegistry.registerBlock(pecanPlank, "PecanPlank");
+		GameRegistry.registerBlock(macadamiaPlank, "MacadamiaPlank");
 		
 		OreDictionary.registerOre("logWood", pecanLog);
 		OreDictionary.registerOre("logWood", macadamiaLog);
@@ -382,8 +385,8 @@ public class ItemLoader
 		LanguageRegistry.addName(macadamiaLog, "Macadamia Log");
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
 		
-		addStringLocalization("wood." + CookieMod.modid + "pecanPlanks", "Pecan Planks");
-		addStringLocalization("wood." + CookieMod.modid + "macadamiaPlanks", "Macadamia Planks");
+		LanguageRegistry.addName(pecanPlank, "Pecan Plank");
+		LanguageRegistry.addName(macadamiaPlank, "Macadamia Plank");
 		
 		//achievements
 		addAchievementLocalization("gettingstarted", "Gettings Started", "Get some supplies to create some cookeis");
