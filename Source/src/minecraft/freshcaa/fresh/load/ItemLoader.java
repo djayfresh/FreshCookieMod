@@ -48,6 +48,7 @@ import freshcaa.fresh.materials.WhiteMacadamia;
 import freshcaa.fresh.trees.MyModLeafs;
 import freshcaa.fresh.trees.MyModLogs;
 import freshcaa.fresh.trees.MyModSaplings;
+import freshcaa.fresh.trees.MyModWood;
 import freshcaa.minecraft.block.GrapeVine;
 import freshcaa.minecraft.block.PeanutPlant;
 import freshcaa.minecraft.block.SunTable;
@@ -229,6 +230,10 @@ public class ItemLoader
 			.setUnlocalizedName("Pecan Log")
 			.setCreativeTab(CookieMod.cookieTab);
 		
+		pecanLog = new MyModWood(ConfigLoader.pecanPlankID)
+				.setUnlocalizedName("Pecan Plank")
+				.setCreativeTab(CookieMod.cookieTab);
+		
 		pecanLeaf = new MyModLeafs(ConfigLoader.pecanLeafID)
 			.setUnlocalizedName("Pecan Leaf");
 		
@@ -239,6 +244,10 @@ public class ItemLoader
 		macadamiaLog = new MyModLogs(ConfigLoader.macadamiaLogID)
 			.setUnlocalizedName("Macadamia Log")
 			.setCreativeTab(CookieMod.cookieTab);
+		
+		macadamiaLog = new MyModWood(ConfigLoader.macadamiaPlankID)
+				.setUnlocalizedName("Macadamia Plank")
+				.setCreativeTab(CookieMod.cookieTab);
 		
 		macadamiaLeaf = new MyModLeafs(ConfigLoader.macadamiaLeafID)
 			.setUnlocalizedName("Macadamia Leaf");
@@ -373,6 +382,9 @@ public class ItemLoader
 		LanguageRegistry.addName(macadamiaLog, "Macadamia Log");
 		LanguageRegistry.addName(macadamiaSapling, "Macadamia Sapling");
 		
+		addStringLocalization("wood." + CookieMod.modid + "pecanPlanks", "Pecan Planks");
+		addStringLocalization("wood." + CookieMod.modid + "macadamiaPlanks", "Macadamia Planks");
+		
 		//achievements
 		addAchievementLocalization("gettingstarted", "Gettings Started", "Get some supplies to create some cookeis");
 		addAchievementLocalization("gettingdirty", "Gettings Your Hands Dirty", "Mix it up, that's it! Use your hands!");
@@ -385,11 +397,8 @@ public class ItemLoader
 
 	private static void addAchievementLocalization(String key, String name, String description)
 	{
-		LanguageRegistry.instance()
-			.addStringLocalization("achievement." + CookieMod.modid + "." + key, name);
-		
-		LanguageRegistry.instance()
-			.addStringLocalization("achievement." + CookieMod.modid + "." + key + ".desc", description);
+		addStringLocalization("achievement." + CookieMod.modid + "." + key, name);
+		addStringLocalization("achievement." + CookieMod.modid + "." + key + ".desc", description);
 	}
 	
 	private static void addStringLocalization(String key, String name)

@@ -31,9 +31,11 @@ public class ConfigLoader
 	public static int sunTableID;
 	public static int sunTableIdleID;
 	public static int pecanLogID;
+	public static int pecanPlankID;
 	public static int pecanLeafID;
 	public static int pecanSaplingID;
 	public static int macadamiaLogID;
+	public static int macadamiaPlankID;
 	public static int macadamiaLeafID;
 	public static int macadamiaSaplingID;
 	
@@ -127,9 +129,11 @@ public class ConfigLoader
 		sunTableID = getBlockId(config, "Sun Drying Table", 2119);
 		sunTableIdleID = getBlockId(config, "Sun Drying Table Idle", 2120);
 		pecanLogID = getBlockId(config, "Pecan Log", 2121);
+		pecanPlankID = getBlockId(config, "Pecan Plank", 2127);
 		pecanLeafID = getBlockId(config, "Pecan Leaf", 2122);
 		pecanSaplingID = getBlockId(config, "Pecan Sapling", 2123);
 		macadamiaLogID = getBlockId(config, "Macadamia Log", 2124);
+		macadamiaPlankID = getBlockId(config, "Macadamia Plank", 2128);
 		macadamiaLeafID = getBlockId(config, "Macadamia Leaf", 2125);
 		macadamiaSaplingID = getBlockId(config, "Macadamia Sapling", 2126);
 	}
