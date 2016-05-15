@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class PecanTreeWorldGenerator extends WorldGenerator
 {
@@ -132,7 +133,7 @@ public class PecanTreeWorldGenerator extends WorldGenerator
 
                                     if (block == null || block.canBeReplacedByLeaves(par1World, j2, j1, l2))
                                     {
-                                        this.setBlockAndMetadata(par1World, j2, j1, l2, CookieMod.pecanLeaf.blockID, this.metaLeaves);
+                                        this.setBlockAndMetadata(par1World, j2, j1, l2, ItemLoader.pecanLeaf.blockID, this.metaLeaves);
                                     }
                                 }
                             }
@@ -147,7 +148,7 @@ public class PecanTreeWorldGenerator extends WorldGenerator
 
                         if (block == null || block.isAirBlock(par1World, par3, par4 + j1, par5) || block.isLeaves(par1World, par3, par4 + j1, par5))
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, CookieMod.pecanLog.blockID, this.metaWood);
+                            this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, ItemLoader.pecanLog.blockID, this.metaWood);
 
                             if (this.vinesGrow && j1 > 0)
                             {

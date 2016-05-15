@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class GrapeVine extends BlockCrops
 {
@@ -22,7 +23,7 @@ public class GrapeVine extends BlockCrops
 		super(par1);
 		setUnlocalizedName("Grape Vine");
 		cropSize = 6;
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.1F, 1.0F);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,14 +32,21 @@ public class GrapeVine extends BlockCrops
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public Icon getIcon(int par1, int par2)
+    public Icon getIcon(int side, int metadata)
     {
-		if (par2 < 0 || par2 >= cropSize)
+		if (metadata < 0 || metadata >= cropSize)
         {
-            par2 = cropSize-1;
+            metadata = cropSize-1;
         }
+		
+//		float sizeOffset = metadata / (cropSize * 1.0f);
+//		if(sizeOffset < 0.1f)
+//			sizeOffset = 0.1f;
+//		
+//		System.out.println(String.format("Grape Size: %1$.3f, meta: %2$d", sizeOffset, metadata));
+//        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, sizeOffset, 1.0F);
 
-        return this.iconArray[par2];
+        return this.iconArray[metadata];
     }
 
     /**
@@ -46,7 +54,7 @@ public class GrapeVine extends BlockCrops
      */
     protected int getSeedItem()
     {
-        return CookieMod.grapeSeeds.itemID;
+        return ItemLoader.grapeSeeds.itemID;
     }
 
     /**
@@ -54,7 +62,7 @@ public class GrapeVine extends BlockCrops
      */
     protected int getCropItem()
     {
-        return CookieMod.grapeSeeds.itemID;
+        return ItemLoader.grapeSeeds.itemID;
     }
     
     @SideOnly(Side.CLIENT)

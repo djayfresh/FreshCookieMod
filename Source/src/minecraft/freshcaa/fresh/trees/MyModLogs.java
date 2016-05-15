@@ -11,6 +11,7 @@ import net.minecraft.util.Icon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class MyModLogs extends BlockLog
 {
@@ -21,7 +22,7 @@ public class MyModLogs extends BlockLog
 	public MyModLogs(int par1)
 	{
 		super(par1);
-		setHardness(1.5f);
+		setHardness(2.0f);
 	}
 
 	@Override
@@ -33,13 +34,13 @@ public class MyModLogs extends BlockLog
 	@SideOnly(Side.CLIENT)
 	protected Icon getSideIcon(int par1)
 	{
-		return blockID == CookieMod.pecanLog.blockID? tree_Side[0] : tree_Side[1];
+		return blockID == ItemLoader.pecanLog.blockID? tree_Side[0] : tree_Side[1];
 	}
 
 	@SideOnly(Side.CLIENT)
 	protected Icon getEndIcon(int par1)
 	{
-		return blockID == CookieMod.pecanLog.blockID? tree_Top[0] : tree_Top[1];
+		return blockID == ItemLoader.pecanLog.blockID? tree_Top[0] : tree_Top[1];
 	}
 
 	@SideOnly(Side.CLIENT)

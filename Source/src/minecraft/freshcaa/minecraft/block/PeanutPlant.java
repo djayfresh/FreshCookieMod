@@ -11,18 +11,21 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class PeanutPlant extends BlockCrops
 {
 	@SideOnly(Side.CLIENT)
 	private Icon[] iconArray;
 
+	private int cropSize; //1 based, number of segments 
 	public PeanutPlant(int par1)
 	{
 		super(par1);
 		setUnlocalizedName("Peanut Plant");
-		float f = 0.5f;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
+		cropSize = 4;
+		
+        this.setBlockBounds(0, 0, 0, 1.0f, 0.1f, 1.0f);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,14 +34,22 @@ public class PeanutPlant extends BlockCrops
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public Icon getIcon(int par1, int par2)
+    public Icon getIcon(int par1, int metadata)
     {
-		if (par2 < 0 || par2 > 4)
+		if (metadata < 0 || metadata > cropSize)
         {
-            par2 = 4;
+            metadata = cropSize;
         }
-
-        return this.iconArray[par2];
+		
+//		float sizeOffset = metadata / (cropSize * 1.0f);
+//		if(sizeOffset < 0.1f)
+//			sizeOffset = 0.1f;
+//
+//		System.out.println(String.format("Peanut Size: %1$.3f, meta: %2$d", sizeOffset, metadata));
+//		
+//		float f = 0.5f;
+//        this.setBlockBounds(0, 0, 0, 1.0f, sizeOffset, 1.0f);
+        return this.iconArray[metadata];
     }
 
     /**
@@ -46,7 +57,7 @@ public class PeanutPlant extends BlockCrops
      */
     protected int getSeedItem()
     {
-        return CookieMod.peanutSeeds.itemID;
+        return ItemLoader.peanutSeeds.itemID;
     }
 
     /**
@@ -54,7 +65,7 @@ public class PeanutPlant extends BlockCrops
      */
     protected int getCropItem()
     {
-        return CookieMod.peanutSeeds.itemID;
+        return ItemLoader.peanutSeeds.itemID;
     }
     
     @SideOnly(Side.CLIENT)

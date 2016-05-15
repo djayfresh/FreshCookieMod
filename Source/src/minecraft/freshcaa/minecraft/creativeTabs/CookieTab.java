@@ -3,6 +3,7 @@ package freshcaa.minecraft.creativeTabs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.load.ItemLoader;
 
 public class CookieTab extends CreativeTabs
 {
@@ -15,6 +16,6 @@ public class CookieTab extends CreativeTabs
 
 	public ItemStack getIconItemStack()
 	{
-		return new ItemStack(CookieMod.cc_Cookie, 1, 0);
+		return new ItemStack(ItemLoader.cc_Cookie, 1, 0);
 	}
 }

@@ -1,5 +1,8 @@
 package freshcaa.minecraft.tileEntity;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +17,10 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
+import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.minecraft.block.SunTable;
 
 public class TileEntitySunTable extends TileEntity implements ISidedInventory
@@ -52,6 +58,7 @@ public class TileEntitySunTable extends TileEntity implements ISidedInventory
 	public void updateEntity()
 	{
 		boolean flag = isBurning(); //active /inactive
+		isInSun = flag;
 		boolean flag1 = false; //change of inventory
 
 		if (!worldObj.isRemote)
@@ -128,7 +135,9 @@ public class TileEntitySunTable extends TileEntity implements ISidedInventory
 
 	public boolean isBurning()
 	{
-		return worldObj.canBlockSeeTheSky(xCoord, yCoord+2, zCoord) && worldObj.getBlockLightValue(xCoord, yCoord+1, zCoord) >=14;
+		float lightValue = worldObj.getBlockLightValue(xCoord, yCoord+1, zCoord);
+		//System.out.println("BrightnessValue: " + lightValue);
+		return worldObj.canBlockSeeTheSky(xCoord, yCoord+2, zCoord) && lightValue >= 14;
 	}
 
 	private boolean canSmelt()
@@ -136,12 +145,16 @@ public class TileEntitySunTable extends TileEntity implements ISidedInventory
 		if (slots[0] == null)
 		{
 			return false;
-		} else
+		} 
+		else
 		{
 			ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(
 					slots[0]); //Item that will be smelted too
-
-			if (itemStack == null) //If Null no Recipe excistes 
+			int itemOreID = OreDictionary.getOreID(slots[0]);
+			int grapeOreID = OreDictionary.getOreID("seedGrape");
+			//FMLLog.log("FreshCAA", Level.FINE, slots[0].getUnlocalizedName() + " Ores ID: " + itemOreID);
+			//If Null no Recipe excistes or this isn't grapes
+			if (itemStack == null || itemOreID != grapeOreID)
 			{
 				return false;
 			}

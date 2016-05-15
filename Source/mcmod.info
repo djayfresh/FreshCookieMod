@@ -1,0 +1,19 @@
+[
+{
+"modid": "FreshCAA",
+"name": "Fresh Cookies",
+"description": "Extending Minecraft with 5 new Cookies, plantes, and crafting. Cookies Are Amazing",
+"version": "v0.9",
+"credits": "Created by DJayFresh",
+"logoFile": "/gfx/buildcraft/logo.png",
+"mcversion": "1.6.4",
+"url": "http://www.djayfresh.com/FreshCAA/index.html",
+"updateUrl": "",
+"authors": [ "DJayFresh", "", "", "" ],
+"parent":"",
+"screenshots": [],
+"dependencies": [
+         "mod_MinecraftForge"
+]
+}
+]
