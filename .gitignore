@@ -11,7 +11,7 @@
 hs_err_pid*
 
 
-# Remove MCP #
+# Remove MCP 1.6.4#
 Source\ 1.6.4/conf
 Source\ 1.6.4/docs
 Source\ 1.6.4/lib
@@ -26,3 +26,26 @@ Source\ 1.6.4/*.bat
 Source\ 1.6.4/*.txt
 Source\ 1.6.4/*.sh
 Source\ 1.6.4/CHANGELOG*
+
+# Remove MCP 1.7.10#
+Source\ 1.7.10/conf
+Source\ 1.7.10/docs
+Source\ 1.7.10/lib
+Source\ 1.7.10/jars
+source\ 1.7.10/logs
+Source\ 1.7.10/minecraft
+Source\ 1.7.10/eclipse
+Source\ 1.7.10/runtime
+Source\ 1.7.10/temp
+Source\ 1.7.10/*.sh
+Source\ 1.7.10/*.bat
+Source\ 1.7.10/*.txt
+Source\ 1.7.10/*.sh
+Source\ 1.7.10/CHANGELOG*
+
+
+# Remove MinecraftSource
+Source\ 1.7.10/bin/minecraft/net
+Source\ 1.7.10/bin/minecraft/Start.class
+Source\ 1.7.10/src/minecraft/net
+Source\ 1.7.10/src/minecraft/Start.java
