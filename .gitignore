@@ -9,3 +9,20 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+
+# Remove MCP #
+Source\ 1.6.4/conf
+Source\ 1.6.4/docs
+Source\ 1.6.4/lib
+Source\ 1.6.4/jars
+source\ 1.6.4/logs
+Source\ 1.6.4/minecraft
+Source\ 1.6.4/eclipse
+Source\ 1.6.4/runtime
+Source\ 1.6.4/temp
+Source\ 1.6.4/*.sh
+Source\ 1.6.4/*.bat
+Source\ 1.6.4/*.txt
+Source\ 1.6.4/*.sh
+Source\ 1.6.4/CHANGELOG*
