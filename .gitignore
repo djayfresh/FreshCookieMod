@@ -17,7 +17,6 @@ Source\ 1.6.4/docs
 Source\ 1.6.4/lib
 Source\ 1.6.4/jars
 source\ 1.6.4/logs
-Source\ 1.6.4/minecraft
 Source\ 1.6.4/eclipse
 Source\ 1.6.4/runtime
 Source\ 1.6.4/temp
@@ -33,7 +32,6 @@ Source\ 1.7.10/docs
 Source\ 1.7.10/lib
 Source\ 1.7.10/jars
 source\ 1.7.10/logs
-Source\ 1.7.10/minecraft
 Source\ 1.7.10/eclipse
 Source\ 1.7.10/runtime
 Source\ 1.7.10/temp
@@ -49,3 +47,5 @@ Source\ 1.7.10/bin/minecraft/net
 Source\ 1.7.10/bin/minecraft/Start.class
 Source\ 1.7.10/src/minecraft/net
 Source\ 1.7.10/src/minecraft/Start.java
+
+
