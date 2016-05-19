@@ -24,6 +24,10 @@ Source\ 1.6.4/*.sh
 Source\ 1.6.4/*.bat
 Source\ 1.6.4/*.txt
 Source\ 1.6.4/*.sh
+Source\ 1.6.4/gradle
+Source\ 1.6.4/gradlew*
+Source\ 1.6.4/build.gradle*
+Source\ 1.6.4/.gradle
 Source\ 1.6.4/CHANGELOG*
 
 # Remove MCP 1.7.10#
@@ -43,6 +47,29 @@ Source\ 1.7.10/CHANGELOG*
 
 
 # Remove MinecraftSource
+Source\ 1.6.4/bin/minecraft/cpw
+Source\ 1.6.4/bin/minecraft/paulscode
+Source\ 1.6.4/bin/minecraft/net
+Source\ 1.6.4/bin/minecraft/ibxm
+Source\ 1.6.4/bin/minecraft/*.class
+Source\ 1.6.4/src/minecraft/cpw
+Source\ 1.6.4/src/minecraft/net
+Source\ 1.6.4/src/minecraft/Start.java
+Source\ 1.6.4/src/minecraft/assets/forge
+Source\ 1.6.4/src/minecraft/ibxm
+Source\ 1.6.4/src/minecraft/paulscode
+Source\ 1.6.4/src/main
+Source\ 1.6.4/src/minecraft/*.class
+Source\ 1.6.4/src/minecraft/*.cfg
+Source\ 1.6.4/src/minecraft/*.png
+Source\ 1.6.4/src/minecraft/*.properties
+Source\ 1.6.4/src/minecraft/mcpmod.info
+Source\ 1.6.4/reobf/minecraft/*.class
+Source\ 1.6.4/reobf/minecraft/cpw
+Source\ 1.6.4/reobf/minecraft/paulscode
+Source\ 1.6.4/reobf/minecraft/net
+Source\ 1.6.4/reobf/minecraft/ibxm
+
 Source\ 1.7.10/bin/minecraft/net
 Source\ 1.7.10/bin/minecraft/Start.class
 Source\ 1.7.10/src/minecraft/net
