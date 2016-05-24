@@ -1,4 +1,4 @@
-package freshcaa.minecraft.world;
+package freshcaa.fresh.world;
 
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;

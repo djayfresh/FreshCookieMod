@@ -1,4 +1,4 @@
-package freshcaa.minecraft.creativeTabs;
+package freshcaa.fresh.creativeTabs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

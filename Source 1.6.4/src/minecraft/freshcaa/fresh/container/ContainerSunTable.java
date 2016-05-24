@@ -1,4 +1,4 @@
-package freshcaa.minecraft.container;
+package freshcaa.fresh.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import freshcaa.minecraft.tileEntity.TileEntitySunTable;
+import freshcaa.fresh.tileEntity.TileEntitySunTable;
 
 public class ContainerSunTable extends Container
 {

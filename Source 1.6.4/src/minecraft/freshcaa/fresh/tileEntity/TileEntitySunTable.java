@@ -1,4 +1,4 @@
-package freshcaa.minecraft.tileEntity;
+package freshcaa.fresh.tileEntity;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -20,8 +20,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
+import freshcaa.fresh.block.SunTable;
 import freshcaa.fresh.cookies.CookieMod;
-import freshcaa.minecraft.block.SunTable;
 
 public class TileEntitySunTable extends TileEntity implements ISidedInventory
 {

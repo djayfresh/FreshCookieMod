@@ -1,9 +1,9 @@
 package freshcaa.fresh.cookies;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import freshcaa.fresh.item.Cookie;
 import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
-import freshcaa.minecraft.item.Cookie;
 
 public class Cookie_CC extends Cookie
 {

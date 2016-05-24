@@ -1,4 +1,4 @@
-package freshcaa.minecraft.block;
+package freshcaa.fresh.block;
 
 import java.util.ArrayList;
 import java.util.Random;

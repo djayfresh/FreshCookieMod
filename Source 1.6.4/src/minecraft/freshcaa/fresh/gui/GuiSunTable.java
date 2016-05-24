@@ -1,4 +1,4 @@
-package freshcaa.minecraft.gui;
+package freshcaa.fresh.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -8,9 +8,9 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
+import freshcaa.fresh.container.ContainerSunTable;
 import freshcaa.fresh.cookies.CookieMod;
-import freshcaa.minecraft.container.ContainerSunTable;
-import freshcaa.minecraft.tileEntity.TileEntitySunTable;
+import freshcaa.fresh.tileEntity.TileEntitySunTable;
 
 public class GuiSunTable extends GuiContainer
 {

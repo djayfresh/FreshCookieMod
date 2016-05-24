@@ -1,4 +1,4 @@
-package freshcaa.minecraft.block;
+package freshcaa.fresh.block;
 
 import java.util.Random;
 
@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.load.ItemLoader;
-import freshcaa.minecraft.tileEntity.TileEntitySunTable;
+import freshcaa.fresh.tileEntity.TileEntitySunTable;
 
 public class SunTable extends BlockContainer
 {

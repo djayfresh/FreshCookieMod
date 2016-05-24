@@ -1,13 +1,13 @@
-package freshcaa.minecraft.gui;
+package freshcaa.fresh.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import freshcaa.fresh.container.ContainerSunTable;
 import freshcaa.fresh.cookies.CookieMod;
-import freshcaa.minecraft.container.ContainerSunTable;
-import freshcaa.minecraft.tileEntity.TileEntitySunTable;
+import freshcaa.fresh.tileEntity.TileEntitySunTable;
 
 public class GuiHandler implements IGuiHandler
 {

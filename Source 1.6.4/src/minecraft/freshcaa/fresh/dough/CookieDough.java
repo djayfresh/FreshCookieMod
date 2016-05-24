@@ -3,9 +3,9 @@ package freshcaa.fresh.dough;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.potion.Potion;
 import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.item.SelfSetFoodItem;
 import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
-import freshcaa.minecraft.item.SelfSetFoodItem;
 
 public class CookieDough extends SelfSetFoodItem
 {

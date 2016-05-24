@@ -1,4 +1,4 @@
-package freshcaa.minecraft.world;
+package freshcaa.fresh.world;
 
 import java.util.Random;
 

@@ -19,8 +19,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.load.ItemLoader;
-import freshcaa.minecraft.world.MacadamiaTreeWorldGenerator;
-import freshcaa.minecraft.world.PecanTreeWorldGenerator;
+import freshcaa.fresh.world.MacadamiaTreeWorldGenerator;
+import freshcaa.fresh.world.PecanTreeWorldGenerator;
 
 public class MyModSaplings extends BlockSapling
 {

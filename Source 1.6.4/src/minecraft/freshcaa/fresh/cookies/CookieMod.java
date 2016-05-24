@@ -13,12 +13,12 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
+import freshcaa.fresh.creativeTabs.CookieTab;
 import freshcaa.fresh.events.EventRegister;
+import freshcaa.fresh.gui.GuiHandler;
 import freshcaa.fresh.load.ConfigLoader;
 import freshcaa.fresh.load.ItemLoader;
-import freshcaa.minecraft.creativeTabs.CookieTab;
-import freshcaa.minecraft.gui.GuiHandler;
-import freshcaa.minecraft.tileEntity.TileEntitySunTable;
+import freshcaa.fresh.tileEntity.TileEntitySunTable;
 
 /**
  * CookieMod - Landing point for loading FreshCAA into Minecraft. 

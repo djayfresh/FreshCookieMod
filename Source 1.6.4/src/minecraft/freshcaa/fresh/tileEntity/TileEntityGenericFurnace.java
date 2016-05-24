@@ -1,4 +1,4 @@
-package freshcaa.minecraft.tileEntity;
+package freshcaa.fresh.tileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.common.registry.GameRegistry;
-import freshcaa.minecraft.block.SunTable;
+import freshcaa.fresh.block.SunTable;
 
 public class TileEntityGenericFurnace extends TileEntity implements
 		ISidedInventory

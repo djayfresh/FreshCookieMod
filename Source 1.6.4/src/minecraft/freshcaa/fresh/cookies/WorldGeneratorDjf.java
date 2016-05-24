@@ -5,8 +5,8 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.common.IWorldGenerator;
-import freshcaa.minecraft.world.MacadamiaTreeWorldGenerator;
-import freshcaa.minecraft.world.PecanTreeWorldGenerator;
+import freshcaa.fresh.world.MacadamiaTreeWorldGenerator;
+import freshcaa.fresh.world.PecanTreeWorldGenerator;
 
 public class WorldGeneratorDjf implements IWorldGenerator
 {
