@@ -53,9 +53,10 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         this.getNavigator().setAvoidsWater(true);
         this.getNavigator().setBreakDoors(true);
         this.movementSpeed = SharedMonsterAttributes.movementSpeed.getDefaultValue();
-        this.tasks.addTask(0, new EntityAIFindTileEntity(this, TileEntityChest.class, this.movementSpeed, 20.0f));
+        this.tasks.addTask(0, new EntityAIWander(this, this.movementSpeed));
+        this.tasks.addTask(1, new EntityAIFindTileEntity(this, TileEntityChest.class, this.movementSpeed, 20.0f));
         this.tasks.addTask(1, new EntityAICircles(this, this.movementSpeed, 20.0f));
-                   
+        
     }
 
     @Override
@@ -63,7 +64,7 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.20000000298023224D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(this.movementSpeed);
     }
 
     @Override
