@@ -3,6 +3,7 @@ package freshcaa.fresh.entity;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.entity.ai.EntityAICircles;
 import freshcaa.fresh.entity.ai.EntityAIFindChest;
+import freshcaa.fresh.entity.ai.EntityAIFindTileEntity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
@@ -33,6 +34,8 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
@@ -50,9 +53,9 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         this.getNavigator().setAvoidsWater(true);
         this.getNavigator().setBreakDoors(true);
         this.movementSpeed = SharedMonsterAttributes.movementSpeed.getDefaultValue();
-        this.tasks.addTask(0, new EntityAIFindChest(this, this.movementSpeed, 20.0f));
+        this.tasks.addTask(0, new EntityAIFindTileEntity(this, TileEntityChest.class, this.movementSpeed, 20.0f));
         this.tasks.addTask(1, new EntityAICircles(this, this.movementSpeed, 20.0f));
-                
+                   
     }
 
     @Override
