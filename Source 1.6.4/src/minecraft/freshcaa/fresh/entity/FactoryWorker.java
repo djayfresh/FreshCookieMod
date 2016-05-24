@@ -32,6 +32,8 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
@@ -45,7 +47,7 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 	public static String NAME = "factoryworker";
 	protected double movementSpeed;
 	protected int randomTickDivider;
-	
+		
     public FactoryWorker(World par1World)
     {
         super(par1World);
