@@ -1,9 +1,11 @@
 package freshcaa.fresh.entity;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import freshcaa.fresh.cookies.CookieMod;
 import freshcaa.fresh.entity.ai.EntityAICircles;
 import freshcaa.fresh.entity.ai.EntityAIFindChest;
 import freshcaa.fresh.entity.ai.EntityAIFindTileEntity;
+import freshcaa.fresh.load.ItemLoader;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
@@ -47,6 +49,8 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 	public static String NAME = "factoryworker";
 	protected double movementSpeed;
 	protected int randomTickDivider;
+	
+	protected EntityPlayer player;
 		
     public FactoryWorker(World par1World)
     {
@@ -102,20 +106,22 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 	@Override
 	public void setCustomer(EntityPlayer entityplayer)
 	{
-		
+		this.player = entityplayer;
 	}
 
 	@Override
 	public EntityPlayer getCustomer()
 	{
-		return null;
+		return this.player;
 	}
 
 	@Override
 	public MerchantRecipeList getRecipes(EntityPlayer entityplayer)
 	{
+		MerchantRecipeList list = new MerchantRecipeList();
+		list.addToListWithCheck(new MerchantRecipe(new ItemStack(Item.diamond, 6), ItemLoader.grapeSeeds));
 		// TODO Auto-generated method stub
-		return null;
+		return list;
 	}
 
 	@Override
@@ -159,6 +165,35 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         if (--this.randomTickDivider <= 0)
         {
         	randomTickDivider = 80 + getRNG().nextInt(50);
+        }
+    }
+    
+    public String getLocalizedName()
+    {
+    	return LanguageRegistry.instance().getStringLocalization("entity.factoryworker.name");
+    }
+    
+    /**
+     * Called when a player interacts with a mob. e.g. gets milk from a cow, gets into the saddle on a pig.
+     */
+    public boolean interact(EntityPlayer par1EntityPlayer)
+    {
+        ItemStack itemstack = par1EntityPlayer.inventory.getCurrentItem();
+        boolean flag = itemstack != null && itemstack.itemID == Item.monsterPlacer.itemID;
+
+        if (!flag && this.isEntityAlive() && !this.isChild() && !par1EntityPlayer.isSneaking())
+        {
+            if (!this.worldObj.isRemote)
+            {
+                this.setCustomer(par1EntityPlayer);
+                par1EntityPlayer.displayGUIMerchant(this, this.getLocalizedName());
+            }
+
+            return true;
+        }
+        else
+        {
+            return super.interact(par1EntityPlayer);
         }
     }
 }

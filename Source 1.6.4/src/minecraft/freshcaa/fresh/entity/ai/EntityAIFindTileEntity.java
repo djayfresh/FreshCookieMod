@@ -50,7 +50,7 @@ public class EntityAIFindTileEntity extends EntityAIBase
 						{
 							if(distSq < closeEntityDistance)
 							{
-								System.out.println("Found a close " + classType.getName() + ": " + distSq);
+								//System.out.println("Found a close " + classType.getName() + ": " + distSq);
 								closeEntityDistance = distSq;
 								closestEntity = targetEntity;
 							}
@@ -61,7 +61,7 @@ public class EntityAIFindTileEntity extends EntityAIBase
 			if(closestEntity != null)
 			{
 				target = closestEntity;
-		    	System.out.println("Set Target: " + String.format("%1$d, %2$d, %3$d", target.xCoord, target.yCoord, target.zCoord));
+		    	//System.out.println("Set Target: " + String.format("%1$d, %2$d, %3$d", target.xCoord, target.yCoord, target.zCoord));
 		    	this.entity.getLookHelper().setLookPosition(target.xCoord, this.entity.posY + 2, target.zCoord, 30.0F, 30.0F);
 			}
 			else

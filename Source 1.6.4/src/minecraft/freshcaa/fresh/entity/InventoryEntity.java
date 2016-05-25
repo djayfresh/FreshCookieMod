@@ -61,7 +61,7 @@ public class InventoryEntity implements IInventory
 	public String getInvName()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return "Test Inventory Entity";
 	}
 
 	@Override
