@@ -1,48 +1,27 @@
 package freshcaa.fresh.entity;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import freshcaa.fresh.cookies.CookieMod;
-import freshcaa.fresh.entity.ai.EntityAICircles;
-import freshcaa.fresh.entity.ai.EntityAIFindChest;
-import freshcaa.fresh.entity.ai.EntityAIFindTileEntity;
-import freshcaa.fresh.load.ItemLoader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIFollowGolem;
-import net.minecraft.entity.ai.EntityAIFollowParent;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMate;
-import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIPanic;
-import net.minecraft.entity.ai.EntityAIPlay;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITempt;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIVillagerMate;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import freshcaa.fresh.cookies.CookieMod;
+import freshcaa.fresh.entity.ai.EntityAICircles;
+import freshcaa.fresh.entity.ai.EntityAIFindTileEntity;
+import freshcaa.fresh.load.ItemLoader;
 
 public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 {
@@ -50,7 +29,9 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 	protected double movementSpeed;
 	protected int randomTickDivider;
 	
+	public EntityTask[] assignableTasks;
 	protected EntityPlayer player;
+	protected int activeTask;
 		
     public FactoryWorker(World par1World)
     {
@@ -58,10 +39,14 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         this.setSize(0.9F, 1.3F);
         this.getNavigator().setAvoidsWater(true);
         this.getNavigator().setBreakDoors(true);
-        this.movementSpeed = SharedMonsterAttributes.movementSpeed.getDefaultValue();
-        this.tasks.addTask(0, new EntityAIWander(this, this.movementSpeed));
-        this.tasks.addTask(1, new EntityAIFindTileEntity(this, TileEntityChest.class, this.movementSpeed, 20.0f));
-        this.tasks.addTask(1, new EntityAICircles(this, this.movementSpeed, 20.0f));
+        this.movementSpeed = SharedMonsterAttributes.movementSpeed.getDefaultValue()/2;
+        
+        this.assignableTasks = new EntityTask[3];
+        
+        this.activeTask = 0;
+        addTask(0, 0, new EntityAIWander(this, this.movementSpeed), true);
+        addTask(1, 1, new EntityAIFindTileEntity(this, TileEntityChest.class, this.movementSpeed, 20.0D));
+        addTask(2, 1, new EntityAICircles(this, this.movementSpeed, 20.0f));
         
     }
 
@@ -128,7 +113,35 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
 	public void setRecipes(MerchantRecipeList merchantrecipelist)
 	{
 		// TODO Auto-generated method stub
-		
+	}
+	
+	public void addTask(int taskId, int priority, EntityAIBase task)
+	{
+		addTask(taskId, priority, task, false);
+	}
+	
+	public void addTask(int taskId, int priority, EntityAIBase task, boolean active)
+	{
+		this.assignableTasks[taskId] = new EntityTask(priority,task);
+		if(active){
+			this.tasks.addTask(priority, this.assignableTasks[taskId].task);
+		}
+	}
+	
+	public void setActiveTask(int taskId)
+	{
+		EntityTask task = this.assignableTasks[taskId];
+		this.tasks.addTask(task.priority, task.task);
+	}
+	
+	public void clearTasks()
+	{
+		this.tasks.taskEntries.clear();
+	}
+	
+	public void removeTask(int taskId)
+	{
+		this.tasks.removeTask(this.assignableTasks[taskId].task);
 	}
 
 	@Override
@@ -195,5 +208,17 @@ public class FactoryWorker extends EntityAgeable implements IMerchant, INpc
         {
             return super.interact(par1EntityPlayer);
         }
+    }
+    
+    private class EntityTask
+    {
+    	public EntityAIBase task;
+    	public int priority;
+    	
+    	public EntityTask(int priority, EntityAIBase task)
+    	{
+    		this.priority = priority;
+    		this.task = task;
+    	}
     }
 }
