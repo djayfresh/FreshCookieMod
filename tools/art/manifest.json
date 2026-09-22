@@ -1,0 +1,214 @@
+{
+  "size": 32,
+  "denoise": 0.5,
+  "upscale": "bicubic",
+  "colors": 48,
+  "textures": [
+    {
+      "path": "item/chocolate_chip_cookie",
+      "prompt": "a chocolate chip cookie, round golden brown cookie with dark chocolate chips, item icon"
+    },
+    {
+      "path": "item/oatmeal_raisin_cookie",
+      "prompt": "an oatmeal raisin cookie, round rough textured oat cookie with dark raisins, item icon"
+    },
+    {
+      "path": "item/peanut_butter_cookie",
+      "prompt": "a peanut butter cookie, round tan cookie with a deep criss-cross hatch fork pattern pressed into the top, item icon",
+      "denoise": 0.45,
+      "seed": 77
+    },
+    {
+      "path": "item/pecan_cookie",
+      "prompt": "a pecan cookie, round brown cookie topped with pecan nut halves, item icon"
+    },
+    {
+      "path": "item/white_macadamia_cookie",
+      "prompt": "a white chocolate macadamia cookie, round pale cookie with white chocolate chunks and macadamia nuts, item icon"
+    },
+    {
+      "path": "item/cookie_dough",
+      "prompt": "a ball of raw pale cookie dough, soft lump, item icon"
+    },
+    {
+      "path": "item/chocolate_chip_cookie_dough",
+      "prompt": "a ball of raw cookie dough with chocolate chips, item icon"
+    },
+    {
+      "path": "item/oatmeal_raisin_cookie_dough",
+      "prompt": "a ball of raw oat cookie dough with raisins, item icon"
+    },
+    {
+      "path": "item/peanut_butter_cookie_dough",
+      "prompt": "a ball of raw tan peanut butter cookie dough, item icon"
+    },
+    {
+      "path": "item/pecan_cookie_dough",
+      "prompt": "a ball of raw cookie dough with pecan pieces, item icon"
+    },
+    {
+      "path": "item/white_macadamia_cookie_dough",
+      "prompt": "a ball of raw pale cookie dough with white chocolate and macadamia pieces, item icon"
+    },
+    {
+      "path": "item/raisin",
+      "prompt": "three dark purple wrinkled raisins with soft highlights, dried grapes, item icon",
+      "denoise": 0.45,
+      "seed": 7,
+      "background": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "path": "item/oats",
+      "prompt": "a small pile of rolled oats, beige grain flakes, item icon"
+    },
+    {
+      "path": "item/pecan",
+      "prompt": "a single pecan nut half, brown ridged nut, item icon"
+    },
+    {
+      "path": "item/white_macadamia",
+      "prompt": "a round pale cream macadamia nut, item icon"
+    },
+    {
+      "path": "item/peanuts",
+      "prompt": "a few peanuts in tan shells, item icon"
+    },
+    {
+      "path": "item/grapes",
+      "prompt": "a bunch of purple grapes with a green stem, item icon"
+    },
+    {
+      "path": "block/sun_drying_table_side",
+      "prompt": "side of a sturdy wooden table block with gold trim, block texture, tileable",
+      "denoise": 0.45,
+      "tileable": true
+    },
+    {
+      "path": "block/sun_drying_table_top",
+      "prompt": "top face of a wooden drying table block with a bright sun emblem, block texture, tileable",
+      "denoise": 0.45,
+      "tileable": true
+    },
+    {
+      "path": "block/sun_drying_table_top_lit",
+      "prompt": "top face of a wooden drying table block with a glowing bright yellow sun emblem, block texture, tileable",
+      "denoise": 0.45,
+      "tileable": true
+    },
+    {
+      "path": "block/pecan_log",
+      "prompt": "pecan tree bark, wood log side texture, vertical bark grooves, tileable block texture, high contrast, clear bark ridges",
+      "denoise": 0.45,
+      "tileable": true
+    },
+    {
+      "path": "block/pecan_log_top",
+      "prompt": "cut end of a pecan log, wood rings, tree ring cross section, block texture",
+      "denoise": 0.45
+    },
+    {
+      "path": "block/pecan_planks",
+      "prompt": "warm brown wooden planks, four horizontal boards with dark seams and wood grain, minecraft planks block texture, tileable",
+      "denoise": 0.75,
+      "tileable": true
+    },
+    {
+      "path": "block/pecan_leaves",
+      "prompt": "dense pecan tree foliage, overlapping small leaves filling the whole image, leaf cluster block texture, tileable, top-down canopy",
+      "mode": "leaves",
+      "denoise": 0.7,
+      "colors": 24
+    },
+    {
+      "path": "block/pecan_sapling",
+      "prompt": "a small tree sapling, thin stem with a few green leaves, plant sprite, transparent background"
+    },
+    {
+      "path": "block/macadamia_log",
+      "prompt": "macadamia tree bark, light brown wood log side with dark vertical grooves and knots, tileable block texture, high contrast",
+      "denoise": 0.6,
+      "tileable": true
+    },
+    {
+      "path": "block/macadamia_log_top",
+      "prompt": "cut end of a macadamia log, wood rings, tree ring cross section, block texture",
+      "denoise": 0.45
+    },
+    {
+      "path": "block/macadamia_planks",
+      "prompt": "dark brown wooden planks, four horizontal boards with dark seams and wood grain, minecraft planks block texture, tileable",
+      "denoise": 0.75,
+      "tileable": true
+    },
+    {
+      "path": "block/macadamia_leaves",
+      "prompt": "dense macadamia tree foliage, overlapping small leaves filling the whole image, leaf cluster block texture, tileable, top-down canopy",
+      "mode": "leaves",
+      "denoise": 0.7,
+      "colors": 24
+    },
+    {
+      "path": "block/macadamia_sapling",
+      "prompt": "a small tree sapling, thin stem with a few dark green leaves, plant sprite, transparent background"
+    },
+    {
+      "path": "block/peanut_plant_stage0",
+      "prompt": "a tiny green seedling sprout in soil, crop sprite stage 1, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/peanut_plant_stage1",
+      "prompt": "a small leafy green peanut plant seedling, crop sprite stage 2, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/peanut_plant_stage2",
+      "prompt": "a bushy green peanut plant, crop sprite stage 3, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/peanut_plant_stage3",
+      "prompt": "a bushy green peanut plant with small yellow flowers, crop sprite stage 4, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/peanut_plant_stage4",
+      "prompt": "a mature bushy peanut plant with yellow flowers and visible peanuts, crop sprite, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage0",
+      "prompt": "a tiny green vine sprout, crop sprite stage 1, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage1",
+      "prompt": "a small climbing green vine with a few leaves, crop sprite, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage2",
+      "prompt": "a climbing green grape vine with leaves and tendrils, crop sprite, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage3",
+      "prompt": "a leafy grape vine with small green unripe grape clusters, crop sprite, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage4",
+      "prompt": "a leafy grape vine with ripening purple grape clusters, crop sprite, transparent background",
+      "denoise": 0.4
+    },
+    {
+      "path": "block/grape_vine_stage5",
+      "prompt": "grape vine plant with ripe purple grape bunches on a trellis, crop sprite, transparent background",
+      "denoise": 0.4
+    }
+  ]
+}
