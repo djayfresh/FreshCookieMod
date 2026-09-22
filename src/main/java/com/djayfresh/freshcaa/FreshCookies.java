@@ -4,6 +4,7 @@ import com.djayfresh.freshcaa.registry.ModBlockEntities;
 import com.djayfresh.freshcaa.registry.ModBlocks;
 import com.djayfresh.freshcaa.registry.ModEntities;
 import com.djayfresh.freshcaa.registry.ModItems;
+import com.djayfresh.freshcaa.registry.ModLootModifiers;
 import com.djayfresh.freshcaa.registry.ModMenus;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
@@ -76,6 +77,7 @@ public class FreshCookies {
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModMenus.MENUS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
+        ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(ModEntities::onAttributeCreation);

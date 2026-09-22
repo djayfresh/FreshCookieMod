@@ -18,6 +18,19 @@ public final class Config {
             .comment("Extra drying speed per lens on a Sun Drying Table (1.0 = each lens doubles the base speed; 4 lenses = 5x)")
             .defineInRange("lensSpeedBonus", 1.0, 0.0, 4.0);
 
+    public static final ModConfigSpec.IntValue WHEAT_SEED_DROP_WEIGHT = BUILDER
+            .comment("Grass that would drop wheat seeds picks one of wheat seeds, peanuts or grapes by weight.",
+                    "Weight of wheat seeds in that pick (vanilla's own weight is 10)")
+            .defineInRange("wheatSeedDropWeight", 10, 0, 1000);
+
+    public static final ModConfigSpec.IntValue PEANUT_DROP_WEIGHT = BUILDER
+            .comment("Weight of peanuts in the grass seed pick (0 disables)")
+            .defineInRange("peanutDropWeight", 10, 0, 1000);
+
+    public static final ModConfigSpec.IntValue GRAPE_DROP_WEIGHT = BUILDER
+            .comment("Weight of grapes in the grass seed pick (0 disables)")
+            .defineInRange("grapeDropWeight", 10, 0, 1000);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 
     private Config() {}

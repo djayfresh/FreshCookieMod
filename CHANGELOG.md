@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 (2026-09-22) - Minecraft 26.3, NeoForge
+
+- Grapes and peanuts can be found again: breaking grass or ferns that would drop wheat seeds now picks wheat seeds, peanuts or grapes by weight, as the 1.6.4 version did. Three config weights (`wheatSeedDropWeight`, `peanutDropWeight`, `grapeDropWeight`, default 10 each; 0 disables one). Implemented as a global loot modifier, so it works with datapacks that change grass loot.
+
 ## 2.1.1 (2026-09-22) - Minecraft 26.3, NeoForge
 
 - Mod logo in the mods list (a cookie, built from the item texture).

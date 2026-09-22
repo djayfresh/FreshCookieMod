@@ -32,7 +32,7 @@ It needs no fuel, only direct sunlight. Rain, night, or a roof stop it.
     Gold  | Diamond | Gold
     Stick | Gold    | Stick
 
-**Crops**: Peanuts and Grapes plant on farmland like wheat seeds. Oats come from wheat.
+**Crops**: Peanuts and Grapes drop from grass and ferns in place of wheat seeds (one weighted pick per drop, weights in the config). Plant them on farmland like wheat seeds. Oats come from wheat.
 
 **Trees**: Pecan and Macadamia trees generate in forests, plains and savannas. Leaves drop saplings
 and nuts. Logs craft into planks and smelt into charcoal.
@@ -61,5 +61,6 @@ Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing
 | `v2.0.0` | 26.3 | NeoForge rewrite |
 | `v2.1.0` | 26.3 | Modelled Sun Drying Table, lenses with light beams |
 | `v2.1.1` | 26.3 | Mod logo, first published release |
+| `v2.2.0` | 26.3 | Grapes and peanuts drop from grass again |
 
 See [CHANGELOG.md](CHANGELOG.md) for details.

@@ -111,6 +111,10 @@ Resolved open points: +100% speed per lens (`lensSpeedBonus`), one lens per craf
 - Test jar installed in MultiMC (`D:\Minecraft\MultiMC\mods` and the `NeoForge 26.3 FreshCookies` instance) next to Messy Beds 2.0.1; older jars moved to `old/`.
 - Planet Minecraft cover image: `python tools/release_art.py cover` writes `tools/out/planet_minecraft_cover.png` (gitignored).
 
+## Release 2.2.0 (2026-09-22)
+- The port had dropped the 1.6.4 `addGrassSeed` behaviour, so grapes and peanuts had no survival source. Restored as a global loot modifier (`loot/GrassSeedsModifier`, data `loot_modifiers/grass_seeds.json`, condition on the short_grass/tall_grass/fern/large_fern loot tables) with config weights. Note: NeoForge 26.3 loads every file under `data/<ns>/loot_modifiers/` directly; the old `neoforge:global_loot_modifiers.json` index is gone and fails to parse.
+- Verified over RCON by breaking 300 short grass: wheat seeds, peanuts and grapes all dropped in roughly equal numbers.
+
 ## What's left (2026-09-22)
 
 ### Loader

@@ -53,5 +53,8 @@
   "freshcaa.configuration.cookieDoughPoisonous": "Cookie Dough Can Poison",
   "freshcaa.configuration.cookieDoughPoisonChance": "Cookie Dough Poison Chance",
   "item.freshcaa.lens": "Lens",
-  "freshcaa.configuration.lensSpeedBonus": "Lens Speed Bonus"
+  "freshcaa.configuration.lensSpeedBonus": "Lens Speed Bonus",
+  "freshcaa.configuration.wheatSeedDropWeight": "Wheat Seed Drop Weight",
+  "freshcaa.configuration.peanutDropWeight": "Peanut Drop Weight",
+  "freshcaa.configuration.grapeDropWeight": "Grape Drop Weight"
 }
