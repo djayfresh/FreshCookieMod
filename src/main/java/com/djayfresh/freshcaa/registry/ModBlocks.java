@@ -29,6 +29,7 @@ public final class ModBlocks {
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops()
                     .strength(3.5F)
+                    .noOcclusion()
                     .lightLevel(state -> state.getValue(SunDryingTableBlock.LIT) ? 6 : 0));
 
     // Crops

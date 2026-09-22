@@ -17,7 +17,7 @@
 4. Import Dropbox `1.8/src/main` (minus pirates + build output) on branch `archive/port-1.8`, tag `wip-mc1.8`
 5. Push tags; Dropbox folder becomes cold backup
 
-## Phase 2: Port to latest Minecraft  — DONE 2026-09-22 (branch neoforge-26.3)
+## Phase 2: Port to latest Minecraft  â€” DONE 2026-09-22 (branch neoforge-26.3)
 - Loader: NeoForge 26.3.0.8-beta on Minecraft 26.3 (Java 25). Only beta NeoForge builds existed for 26.3 at port time; bump neo_version when a release lands.
 - Rewrite guided by old code, not incremental port:
   - NeoForge MDK, Gradle, JDK 21, modid `freshcaa`; old source moves to `legacy/`
@@ -39,3 +39,70 @@
 4. Special cases: mob skin per UV region; GUI regenerate background only, slots untouched
 5. Contact sheet old vs new, in-game review, iterate; generate real mod logo
 6. Commit textures, originals under `legacy/`, tag `v2.1.0`
+
+**Status (2026-09-22):** first attempt REJECTED. Full 42-texture batch (SDXL + pixel-art LoRA img2img, 32x32) was reviewed in game and rolled back to the v2.0.0 originals: blurry, lost detail, leaves floated and did not reach block edges. Tooling kept in `tools/art/` (per-run output under `out/runs/{run}` and `FreshCookies/{run}` on the server). Next attempt should trial a few textures with a different model/approach before any batch.
+
+
+## Phase 4: Modelled Sun Drying Table with mirrors (v2.1.0)
+
+Goal: replace the cube table with a real 3D table (four legs, mesh top), show what is on it
+(empty / grapes / raisins), and add Mirror upgrades that sit above the table and focus sunlight onto it.
+Branch `table-model`, tag `v2.1.0` when merged.
+
+### Design decisions
+- **Geometry**: JSON block model with elements, no block entity renderer. Legs 2x2 px at each corner,
+  y 0-11; frame rails y 11-13; mesh top a 1 px thick plate at y 13-14 inset 1 px, textured with a cutout
+  wire-mesh texture. Everything inside one block; the mirrors extend above it (element y up to 32 is
+  allowed in block models).
+- **Contents state**: `EnumProperty<Contents> CONTENTS` = `empty | grapes | raisins`, derived on the
+  server from the slots each tick: result slot has items -> `raisins`; else input slot has items ->
+  `grapes`; else `empty`. Rendered as an extra thin element on the mesh (grapes layer / raisin layer
+  textures). Kept as block state, not a renderer, so it is cheap and works with shaders and item frames.
+- **Mirrors**: new item `freshcaa:mirror`. The table gets 4 upgrade slots (container size 2 -> 6).
+  `IntegerProperty MIRRORS` 0-4 mirrors the number of filled upgrade slots; rendered with a multipart
+  blockstate that adds one tilted mirror element per count at the four corners (NE, NW, SE, SW relative
+  to `facing`), roughly y 22-26, tilted 22.5 degrees inward, on thin posts. Effect: drying speed
+  `1 + mirrors` progress per tick, i.e. 4 mirrors dry 5x faster (config `mirrorSpeedBonus`).
+  Direct sunlight is still required; mirrors never remove that rule.
+- **Upgrade slots** accept only items tagged `freshcaa:sun_drying_table_upgrades` (just `mirror` for now),
+  stack size 1 per slot, so future upgrades (lens, tray) need only an item and tag entry.
+- **Mirror recipe**: shaped, `iron_nugget` x3 top row, `glass_pane` x3 middle, `iron_nugget` x3 bottom
+  -> 2 mirrors. Table recipe unchanged.
+- **Rendering flags**: `noOcclusion()`, cutout render type declared in the model JSON
+  (`"render_type": "minecraft:cutout"`), `isViewBlocking` false, custom `VoxelShape` = legs + top
+  (mirrors are visual only, not collidable). Analog output signal and all existing behaviour kept.
+- **Old worlds**: new properties default to `empty` / `0` on load; container grows from 2 to 6 slots,
+  old item slots 0 and 1 keep their index, so existing tables and their contents survive.
+
+### Steps
+1. **Model generator** `tools/models/sun_drying_table.py`: writes the table, grapes, raisins, and mirror
+   part models from a few numbers (leg size, mesh height, mirror tilt) so tweaks are one edit, not
+   hand-editing 30 elements. Outputs into `assets/freshcaa/models/block/`.
+2. **Textures** (16x16, hand-drawn/pixel edits, not AI): `sun_drying_table_wood` (legs/frame),
+   `sun_drying_table_mesh` (cutout wire), `sun_drying_table_grapes`, `sun_drying_table_raisins`,
+   `mirror` (glass face), `mirror_back`, item icon `item/mirror`. Retire the three old cube textures.
+3. **Block**: add `CONTENTS` and `MIRRORS` properties, shape, render flags, rotate/mirror handling for the
+   new properties; blockstate JSON becomes multipart (facing x contents x mirror parts).
+4. **Block entity**: 6 slots (`SLOT_UPGRADE_0..3`), `getMirrorCount()`, speed multiplier in `serverTick`,
+   state sync when contents or mirror count changes, `canPlaceItem` restricts upgrade slots to the tag,
+   `WorldlyContainer` faces unchanged (hoppers never touch upgrade slots).
+5. **Menu + screen**: 4 upgrade slots in a column on the right (x 152, y 17/35/53/71), tag-restricted
+   `Slot.mayPlace`, `quickMoveStack` routes mirrors to upgrade slots; GUI sheet gets the four slot frames
+   and a small mirror ghost icon (256x256 sheet edited with a PIL script, not regenerated).
+6. **Item**: register `MIRROR`, add to creative tab, recipe + advancement, `sun_drying_table_upgrades`
+   tag, lang keys (item, config), table item model = empty table (no mirrors).
+7. **Config**: `mirrorSpeedBonus` (default 1.0 per mirror, 0-4).
+8. **Verify**: compile; dedicated server RCON tests (place table, put grapes -> `contents=grapes`,
+   wait -> `raisins`, insert 4 mirrors -> `mirrors=4` and roughly 5x throughput, cover -> stops, break ->
+   drops grapes/raisins/mirrors); client run for the model, shape outline, cutout mesh, mirror placement
+   from all four facings, item in hand/GUI; MultiMC jar for the user's review.
+9. Update README (mirror item, upgrade slots), bump `mod_version` 2.1.0, merge, tag `v2.1.0`.
+
+### Status (2026-09-22)
+Built. Design changed during modelling: the four **mirrors became lenses** (semi-transparent glass in an iron ring, tilted 45 degrees over each side on a post) and each lens casts a glowing beam plus sparkle particles onto the mesh while the table is lit. Slots map to fixed sides (slot 1 north, 2 east, 3 south, 4 west). The model was built in Blockbench over its MCP plugin (`tools/models/sun_drying_table.bbmodel`); `tools/models/split_table_model.py` turns the Java export into the per-part models (beams are generated by the script, not modelled). Dedicated-server RCON checks passed: contents/lens/lit properties follow the slots, covering stops drying, breaking drops table + grapes + lens, two lenses dry at 3x. Old worlds keep their tables and items.
+
+### Open points (defaults chosen, change if you disagree)
+- Speed bonus per mirror (chosen: +100% each, linear).
+- Mirror recipe yield and ingredients.
+- Whether a partially dried batch shows `raisins` as soon as the first raisin lands (chosen: yes, per
+  "raisins when some are dry").

@@ -1,0 +1,53 @@
+{
+  "credit": "Made with Blockbench (tools/models/sun_drying_table.bbmodel)",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "sun_drying_table_beam": "freshcaa:block/sun_drying_table_beam",
+    "particle": "freshcaa:block/sun_drying_table_beam"
+  },
+  "elements": [
+    {
+      "from": [
+        6.5,
+        11.44,
+        2.56
+      ],
+      "to": [
+        9.5,
+        19.44,
+        2.56
+      ],
+      "light_emission": 15,
+      "shade_direction_override": "up",
+      "rotation": {
+        "angle": -45,
+        "axis": "x",
+        "origin": [
+          8,
+          19.44,
+          2.56
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#sun_drying_table_beam"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#sun_drying_table_beam"
+        }
+      }
+    }
+  ]
+}

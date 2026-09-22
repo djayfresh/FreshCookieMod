@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "n": "minecraft:iron_nugget",
+    "g": "minecraft:glass_pane"
+  },
+  "pattern": [
+    "nnn",
+    "ngn",
+    "nnn"
+  ],
+  "result": {
+    "id": "freshcaa:lens"
+  }
+}

@@ -55,6 +55,7 @@ public class FreshCookies {
                 output.accept(ModItems.GRAPES.get());
 
                 output.accept(ModItems.SUN_DRYING_TABLE.get());
+                output.accept(ModItems.LENS.get());
 
                 output.accept(ModItems.PECAN_SAPLING.get());
                 output.accept(ModItems.PECAN_LOG.get());

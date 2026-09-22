@@ -23,7 +23,7 @@ Smelt the matching dough in a furnace. Plain cookie dough smelts into a vanilla 
 **Dough**: Egg + Sugar + Wheat gives 4 Cookie Dough. Combine dough with cocoa beans, raisin + oats,
 peanuts, pecan, or white macadamia for the flavoured doughs. Raw dough is edible, but may poison you.
 
-**Sun Drying Table**: place grapes in it under open daytime sky and they dry into raisins.
+**Sun Drying Table**: a four-legged table with a mesh top. Place grapes in it under open daytime sky and they dry into raisins; the model shows the grapes, then the raisins, as they sit on the mesh. Its four upgrade slots take **Lenses** (iron nuggets around a glass pane). Each lens appears over one side of the table, focuses the sun onto the mesh with a visible beam while the table is lit, and speeds drying up by the configurable `lensSpeedBonus` (default: each lens adds another 100%, so four lenses dry five times faster). Direct sunlight is still required.
 It needs no fuel, only direct sunlight. Rain, night, or a roof stop it.
 
     Stick | Gold    | Stick
@@ -57,3 +57,4 @@ Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing
 | `v1.0-mc1.6.4` | 1.6.4 | Final legacy release with the Factory Worker |
 | `wip-mc1.8` | 1.8 | Unfinished 2015 port, `archive/port-1.8` branch |
 | `v2.0.0` | 26.3 | NeoForge rewrite |
+| `v2.1.0` | 26.3 | Modelled Sun Drying Table, lenses with light beams |

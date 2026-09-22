@@ -1,5 +1,6 @@
 package com.djayfresh.freshcaa.block.entity;
 
+import com.djayfresh.freshcaa.Config;
 import com.djayfresh.freshcaa.block.SunDryingTableBlock;
 import com.djayfresh.freshcaa.menu.SunDryingTableMenu;
 import com.djayfresh.freshcaa.registry.ModBlockEntities;
@@ -29,13 +30,16 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Two-slot container (input, result). While the block is in direct daytime sunlight it applies the input's
- * furnace recipe, restricted to items tagged {@code freshcaa:sun_dryable}. No fuel is ever consumed.
+ * Six-slot container: input, result, and four upgrade slots. While the block is in direct daytime sunlight it
+ * applies the input's furnace recipe, restricted to items tagged {@code freshcaa:sun_dryable}. No fuel is ever
+ * consumed. Each lens in an upgrade slot speeds the drying up (see {@link Config#LENS_SPEED_BONUS}).
  */
 public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
     public static final int SLOT_INPUT = 0;
     public static final int SLOT_RESULT = 1;
-    public static final int SLOT_COUNT = 2;
+    public static final int SLOT_UPGRADE_START = 2;
+    public static final int UPGRADE_SLOT_COUNT = 4;
+    public static final int SLOT_COUNT = SLOT_UPGRADE_START + UPGRADE_SLOT_COUNT;
 
     public static final int DATA_PROGRESS = 0;
     public static final int DATA_TOTAL = 1;
@@ -100,8 +104,27 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
                 && !level.isRainingAt(above);
     }
 
+    public static boolean isUpgradeSlot(int slot) {
+        return slot >= SLOT_UPGRADE_START && slot < SLOT_COUNT;
+    }
+
+    /** Number of upgrade slots holding a lens. */
+    public int getLensCount() {
+        int count = 0;
+        for (int slot = SLOT_UPGRADE_START; slot < SLOT_COUNT; slot++) {
+            if (!this.items.get(slot).isEmpty()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /** Progress gained per tick of sunlight: 1 plus the configured bonus per lens. */
+    public int getProgressPerTick() {
+        return 1 + (int) Math.round(this.getLensCount() * Config.LENS_SPEED_BONUS.get());
+    }
+
     public static void serverTick(ServerLevel level, BlockPos pos, BlockState state, SunDryingTableBlockEntity table) {
-        boolean wasInSun = state.getValue(SunDryingTableBlock.LIT);
         boolean nowInSun = isInSun(level, pos);
         boolean changed = false;
 
@@ -116,7 +139,7 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
         }
 
         if (!result.isEmpty() && canOutput(table.items.get(SLOT_RESULT), result, table.getMaxStackSize())) {
-            table.progress++;
+            table.progress += table.getProgressPerTick();
             if (table.progress >= DRY_TIME) {
                 table.progress = 0;
                 ItemStack existing = table.items.get(SLOT_RESULT);
@@ -133,8 +156,9 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
         }
 
         table.inSun = nowInSun;
-        if (wasInSun != nowInSun) {
-            state = state.setValue(SunDryingTableBlock.LIT, nowInSun);
+        BlockState wanted = table.visualState(state, nowInSun);
+        if (wanted != state) {
+            state = wanted;
             level.setBlockAndUpdate(pos, state);
             changed = true;
         }
@@ -142,6 +166,21 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
         if (changed) {
             setChanged(level, pos, state);
         }
+    }
+
+    /** The block state that matches the current inventory and sunlight: what the model should show. */
+    private BlockState visualState(BlockState state, boolean lit) {
+        SunDryingTableBlock.Contents contents = SunDryingTableBlock.Contents.EMPTY;
+        if (!this.items.get(SLOT_RESULT).isEmpty()) {
+            contents = SunDryingTableBlock.Contents.RAISINS;
+        } else if (!this.items.get(SLOT_INPUT).isEmpty()) {
+            contents = SunDryingTableBlock.Contents.GRAPES;
+        }
+        state = state.setValue(SunDryingTableBlock.LIT, lit).setValue(SunDryingTableBlock.CONTENTS, contents);
+        for (int i = 0; i < UPGRADE_SLOT_COUNT; i++) {
+            state = state.setValue(SunDryingTableBlock.LENSES[i], !this.items.get(SLOT_UPGRADE_START + i).isEmpty());
+        }
+        return state;
     }
 
     private static boolean canOutput(ItemStack existing, ItemStack result, int maxStackSize) {
@@ -199,6 +238,9 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack itemStack) {
+        if (isUpgradeSlot(slot)) {
+            return itemStack.is(ModTags.Items.SUN_DRYING_TABLE_UPGRADES);
+        }
         return slot == SLOT_INPUT;
     }
 
@@ -212,7 +254,7 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack itemStack, @Nullable Direction direction) {
-        return this.canPlaceItem(slot, itemStack);
+        return slot == SLOT_INPUT;
     }
 
     @Override

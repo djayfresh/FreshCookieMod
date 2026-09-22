@@ -1,34 +1,51 @@
 {
-  "variants": {
-    "facing=north,lit=false": {
-      "model": "freshcaa:block/sun_drying_table"
-    },
-    "facing=north,lit=true": {
-      "model": "freshcaa:block/sun_drying_table_lit"
-    },
-    "facing=east,lit=false": {
-      "model": "freshcaa:block/sun_drying_table",
-      "y": 90
-    },
-    "facing=east,lit=true": {
-      "model": "freshcaa:block/sun_drying_table_lit",
-      "y": 90
-    },
-    "facing=south,lit=false": {
-      "model": "freshcaa:block/sun_drying_table",
-      "y": 180
-    },
-    "facing=south,lit=true": {
-      "model": "freshcaa:block/sun_drying_table_lit",
-      "y": 180
-    },
-    "facing=west,lit=false": {
-      "model": "freshcaa:block/sun_drying_table",
-      "y": 270
-    },
-    "facing=west,lit=true": {
-      "model": "freshcaa:block/sun_drying_table_lit",
-      "y": 270
-    }
-  }
+  "multipart": [
+    { "when": { "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table" } },
+    { "when": { "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table", "y": 90 } },
+    { "when": { "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table", "y": 180 } },
+    { "when": { "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table", "y": 270 } },
+
+    { "when": { "contents": "grapes", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_grapes" } },
+    { "when": { "contents": "grapes", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_grapes", "y": 90 } },
+    { "when": { "contents": "grapes", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_grapes", "y": 180 } },
+    { "when": { "contents": "grapes", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_grapes", "y": 270 } },
+    { "when": { "contents": "raisins", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_raisins" } },
+    { "when": { "contents": "raisins", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_raisins", "y": 90 } },
+    { "when": { "contents": "raisins", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_raisins", "y": 180 } },
+    { "when": { "contents": "raisins", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_raisins", "y": 270 } },
+
+    { "when": { "lens_1": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_n" } },
+    { "when": { "lens_1": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_n", "y": 90 } },
+    { "when": { "lens_1": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_n", "y": 180 } },
+    { "when": { "lens_1": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_n", "y": 270 } },
+    { "when": { "lens_2": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_e" } },
+    { "when": { "lens_2": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_e", "y": 90 } },
+    { "when": { "lens_2": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_e", "y": 180 } },
+    { "when": { "lens_2": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_e", "y": 270 } },
+    { "when": { "lens_3": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_s" } },
+    { "when": { "lens_3": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_s", "y": 90 } },
+    { "when": { "lens_3": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_s", "y": 180 } },
+    { "when": { "lens_3": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_s", "y": 270 } },
+    { "when": { "lens_4": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_w" } },
+    { "when": { "lens_4": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_w", "y": 90 } },
+    { "when": { "lens_4": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_w", "y": 180 } },
+    { "when": { "lens_4": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_lens_w", "y": 270 } },
+
+    { "when": { "lit": "true", "lens_1": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_n" } },
+    { "when": { "lit": "true", "lens_1": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_n", "y": 90 } },
+    { "when": { "lit": "true", "lens_1": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_n", "y": 180 } },
+    { "when": { "lit": "true", "lens_1": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_n", "y": 270 } },
+    { "when": { "lit": "true", "lens_2": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_e" } },
+    { "when": { "lit": "true", "lens_2": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_e", "y": 90 } },
+    { "when": { "lit": "true", "lens_2": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_e", "y": 180 } },
+    { "when": { "lit": "true", "lens_2": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_e", "y": 270 } },
+    { "when": { "lit": "true", "lens_3": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_s" } },
+    { "when": { "lit": "true", "lens_3": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_s", "y": 90 } },
+    { "when": { "lit": "true", "lens_3": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_s", "y": 180 } },
+    { "when": { "lit": "true", "lens_3": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_s", "y": 270 } },
+    { "when": { "lit": "true", "lens_4": "true", "facing": "north" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_w" } },
+    { "when": { "lit": "true", "lens_4": "true", "facing": "east" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_w", "y": 90 } },
+    { "when": { "lit": "true", "lens_4": "true", "facing": "south" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_w", "y": 180 } },
+    { "when": { "lit": "true", "lens_4": "true", "facing": "west" }, "apply": { "model": "freshcaa:block/sun_drying_table_beam_w", "y": 270 } }
+  ]
 }

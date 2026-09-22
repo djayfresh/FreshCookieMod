@@ -1,0 +1,155 @@
+{
+  "credit": "Made with Blockbench (tools/models/sun_drying_table.bbmodel)",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "sun_drying_table_lens": "freshcaa:block/sun_drying_table_lens",
+    "particle": "freshcaa:block/sun_drying_table_lens"
+  },
+  "elements": [
+    {
+      "from": [
+        5.5,
+        20,
+        0.5
+      ],
+      "to": [
+        10.5,
+        21,
+        5.5
+      ],
+      "rotation": {
+        "angle": -45,
+        "axis": "x",
+        "origin": [
+          8,
+          20.5,
+          1.5
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            5,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            5,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            5,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            5,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            5,
+            5
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            13,
+            5
+          ],
+          "texture": "#sun_drying_table_lens"
+        }
+      }
+    },
+    {
+      "from": [
+        7.5,
+        13,
+        1
+      ],
+      "to": [
+        8.5,
+        20,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            1,
+            9
+          ],
+          "texture": "#sun_drying_table_lens"
+        }
+      }
+    }
+  ]
+}

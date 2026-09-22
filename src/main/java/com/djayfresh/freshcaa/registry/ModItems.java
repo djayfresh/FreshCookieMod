@@ -48,6 +48,9 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> MACADAMIA_LEAVES = ITEMS.registerSimpleBlockItem(ModBlocks.MACADAMIA_LEAVES);
     public static final DeferredItem<BlockItem> MACADAMIA_SAPLING = ITEMS.registerSimpleBlockItem(ModBlocks.MACADAMIA_SAPLING);
 
+    // Sun Drying Table upgrade: one per slot, focuses the sun onto the table.
+    public static final DeferredItem<Item> LENS = ITEMS.registerSimpleItem("lens", p -> p.stacksTo(16));
+
     // Entities register before items, so the entity type is available here.
     public static final DeferredItem<SpawnEggItem> FACTORY_WORKER_SPAWN_EGG = ITEMS.registerItem("factory_worker_spawn_egg", SpawnEggItem::new,
             p -> p.spawnEgg(ModEntities.FACTORY_WORKER.get()));

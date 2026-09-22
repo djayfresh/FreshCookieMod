@@ -1,8 +1,623 @@
 {
-  "parent": "minecraft:block/orientable",
+  "credit": "Made with Blockbench (tools/models/sun_drying_table.bbmodel)",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "front": "freshcaa:block/sun_drying_table_side",
-    "side": "freshcaa:block/sun_drying_table_side",
-    "top": "freshcaa:block/sun_drying_table_top"
-  }
+    "sun_drying_table_wood": "freshcaa:block/sun_drying_table_wood",
+    "sun_drying_table_mesh": "freshcaa:block/sun_drying_table_mesh",
+    "particle": "freshcaa:block/sun_drying_table_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        3,
+        11,
+        3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        13,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        11,
+        3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        0,
+        13
+      ],
+      "to": [
+        3,
+        11,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        13,
+        0,
+        13
+      ],
+      "to": [
+        15,
+        11,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            11
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        11,
+        1
+      ],
+      "to": [
+        15,
+        13,
+        3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        11,
+        13
+      ],
+      "to": [
+        15,
+        13,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        11,
+        3
+      ],
+      "to": [
+        3,
+        13,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        13,
+        11,
+        3
+      ],
+      "to": [
+        15,
+        13,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ],
+          "texture": "#sun_drying_table_wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ],
+          "texture": "#sun_drying_table_wood"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        12,
+        3
+      ],
+      "to": [
+        13,
+        13,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            3,
+            13,
+            4
+          ],
+          "texture": "#sun_drying_table_mesh"
+        },
+        "east": {
+          "uv": [
+            3,
+            3,
+            13,
+            4
+          ],
+          "texture": "#sun_drying_table_mesh"
+        },
+        "south": {
+          "uv": [
+            3,
+            3,
+            13,
+            4
+          ],
+          "texture": "#sun_drying_table_mesh"
+        },
+        "west": {
+          "uv": [
+            3,
+            3,
+            13,
+            4
+          ],
+          "texture": "#sun_drying_table_mesh"
+        },
+        "up": {
+          "uv": [
+            3,
+            3,
+            13,
+            13
+          ],
+          "texture": "#sun_drying_table_mesh"
+        },
+        "down": {
+          "uv": [
+            3,
+            3,
+            13,
+            13
+          ],
+          "texture": "#sun_drying_table_mesh"
+        }
+      }
+    }
+  ]
 }

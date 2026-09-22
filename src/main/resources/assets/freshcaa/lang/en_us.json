@@ -51,5 +51,7 @@
   "freshcaa.configuration.section.freshcaa.common.toml": "Fresh Cookies",
   "freshcaa.configuration.section.freshcaa.common.toml.title": "Fresh Cookies",
   "freshcaa.configuration.cookieDoughPoisonous": "Cookie Dough Can Poison",
-  "freshcaa.configuration.cookieDoughPoisonChance": "Cookie Dough Poison Chance"
+  "freshcaa.configuration.cookieDoughPoisonChance": "Cookie Dough Poison Chance",
+  "item.freshcaa.lens": "Lens",
+  "freshcaa.configuration.lensSpeedBonus": "Lens Speed Bonus"
 }

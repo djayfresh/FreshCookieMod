@@ -1,0 +1,33 @@
+{
+  "credit": "Made with Blockbench (tools/models/sun_drying_table.bbmodel)",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "sun_drying_table_raisins": "freshcaa:block/sun_drying_table_raisins",
+    "particle": "freshcaa:block/sun_drying_table_raisins"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        13,
+        3
+      ],
+      "to": [
+        13,
+        13.5,
+        13
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            3,
+            3,
+            13,
+            13
+          ],
+          "texture": "#sun_drying_table_raisins"
+        }
+      }
+    }
+  ]
+}
