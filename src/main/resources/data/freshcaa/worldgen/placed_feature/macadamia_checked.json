@@ -1,0 +1,12 @@
+{
+  "feature": "freshcaa:macadamia",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": "freshcaa:macadamia_sapling"
+      }
+    }
+  ]
+}

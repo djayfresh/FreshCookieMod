@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": "minecraft:stick",
+    "g": "minecraft:gold_ingot",
+    "d": "minecraft:diamond"
+  },
+  "pattern": [
+    "sgs",
+    "gdg",
+    "sgs"
+  ],
+  "result": {
+    "id": "freshcaa:sun_drying_table"
+  }
+}

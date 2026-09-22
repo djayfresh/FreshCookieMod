@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "freshcaa:block/sun_drying_table_side",
+    "side": "freshcaa:block/sun_drying_table_side",
+    "top": "freshcaa:block/sun_drying_table_top"
+  }
+}

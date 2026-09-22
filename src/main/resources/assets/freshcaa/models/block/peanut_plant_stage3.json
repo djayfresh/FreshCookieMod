@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "freshcaa:block/peanut_plant_stage3"
+  }
+}

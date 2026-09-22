@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "freshcaa:chocolate_chip_cookie",
+    "freshcaa:oatmeal_raisin_cookie",
+    "freshcaa:peanut_butter_cookie",
+    "freshcaa:pecan_cookie",
+    "freshcaa:white_macadamia_cookie"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "has_raisin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "freshcaa:raisin"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:raisin"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.raisin_the_roof.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.raisin_the_roof.description"
+    }
+  },
+  "requirements": [
+    [
+      "has_raisin"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:power_of_the_sun"
+}

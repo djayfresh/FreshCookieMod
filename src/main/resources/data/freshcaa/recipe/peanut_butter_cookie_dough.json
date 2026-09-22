@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "freshcaa:cookie_dough",
+    "freshcaa:peanuts"
+  ],
+  "result": {
+    "id": "freshcaa:peanut_butter_cookie_dough"
+  }
+}

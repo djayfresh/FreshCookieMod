@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": "freshcaa:oatmeal_raisin_cookie_dough",
+  "result": {
+    "id": "freshcaa:oatmeal_raisin_cookie"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "criteria": {
+    "has_wheat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:wheat"
+          }
+        ]
+      }
+    },
+    "has_egg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:egg"
+          }
+        ]
+      }
+    },
+    "has_sugar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sugar"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "minecraft:wheat"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.getting_started.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.getting_started.description"
+    }
+  },
+  "requirements": [
+    [
+      "has_wheat",
+      "has_egg",
+      "has_sugar"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:root"
+}

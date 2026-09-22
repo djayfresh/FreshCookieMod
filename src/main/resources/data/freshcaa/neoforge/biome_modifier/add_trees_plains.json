@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:savanna"
+  ],
+  "features": [
+    "freshcaa:trees_pecan",
+    "freshcaa:trees_macadamia"
+  ],
+  "step": "vegetal_decoration"
+}

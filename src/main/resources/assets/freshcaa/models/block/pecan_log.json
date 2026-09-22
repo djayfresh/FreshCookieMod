@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "freshcaa:block/pecan_log_top",
+    "side": "freshcaa:block/pecan_log"
+  }
+}

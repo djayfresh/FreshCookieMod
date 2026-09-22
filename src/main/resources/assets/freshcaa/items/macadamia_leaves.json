@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "freshcaa:block/macadamia_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -14130642
+      }
+    ]
+  }
+}

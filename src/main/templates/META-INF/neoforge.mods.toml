@@ -1,0 +1,29 @@
+license="${mod_license}"
+issueTrackerURL="https://github.com/djayfresh/FreshCookieMod/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+displayURL="https://github.com/djayfresh/FreshCookieMod"
+credits="Created by DJayFresh"
+authors="DJayFresh"
+description='''
+Fresh Cookies (FreshCAA). Five new cookies with their doughs and ingredients,
+a Sun Drying Table for turning grapes into raisins, peanut and grape crops,
+pecan and macadamia trees, and the Factory Worker. Cookies Are Amazing.
+'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"

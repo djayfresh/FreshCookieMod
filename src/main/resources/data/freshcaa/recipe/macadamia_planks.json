@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#freshcaa:macadamia_logs"
+  ],
+  "result": {
+    "id": "freshcaa:macadamia_planks",
+    "count": 4
+  }
+}

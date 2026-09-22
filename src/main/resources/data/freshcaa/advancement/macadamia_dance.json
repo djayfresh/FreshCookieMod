@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "has_macadamia": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "freshcaa:white_macadamia"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:white_macadamia"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.macadamia_dance.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.macadamia_dance.description"
+    }
+  },
+  "requirements": [
+    [
+      "has_macadamia"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:getting_started"
+}

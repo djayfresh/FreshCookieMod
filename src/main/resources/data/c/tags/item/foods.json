@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "freshcaa:chocolate_chip_cookie",
+    "freshcaa:oatmeal_raisin_cookie",
+    "freshcaa:peanut_butter_cookie",
+    "freshcaa:pecan_cookie",
+    "freshcaa:white_macadamia_cookie",
+    "freshcaa:cookie_dough",
+    "freshcaa:chocolate_chip_cookie_dough",
+    "freshcaa:oatmeal_raisin_cookie_dough",
+    "freshcaa:peanut_butter_cookie_dough",
+    "freshcaa:pecan_cookie_dough",
+    "freshcaa:white_macadamia_cookie_dough",
+    "freshcaa:raisin",
+    "freshcaa:oats",
+    "freshcaa:pecan",
+    "freshcaa:white_macadamia",
+    "freshcaa:peanuts",
+    "freshcaa:grapes"
+  ]
+}

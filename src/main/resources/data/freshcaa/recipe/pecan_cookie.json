@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": "freshcaa:pecan_cookie_dough",
+  "result": {
+    "id": "freshcaa:pecan_cookie"
+  }
+}

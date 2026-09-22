@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#freshcaa:pecan_logs"
+  ],
+  "result": {
+    "id": "freshcaa:pecan_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "has_cookie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "freshcaa:chocolate_chip_cookie",
+              "freshcaa:oatmeal_raisin_cookie",
+              "freshcaa:peanut_butter_cookie",
+              "freshcaa:pecan_cookie",
+              "freshcaa:white_macadamia_cookie"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "minecraft:cookie"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.first_cookie.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.first_cookie.description"
+    }
+  },
+  "requirements": [
+    [
+      "has_cookie"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:getting_dirty"
+}

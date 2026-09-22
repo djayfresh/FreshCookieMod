@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "freshcaa:block/macadamia_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "freshcaa:block/macadamia_log"
+    },
+    "axis=z": {
+      "model": "freshcaa:block/macadamia_log_horizontal",
+      "x": 90
+    }
+  }
+}

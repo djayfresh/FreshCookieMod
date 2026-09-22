@@ -1,0 +1,56 @@
+{
+  "criteria": {
+    "has_wheat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:wheat"
+          }
+        ]
+      }
+    },
+    "has_egg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:egg"
+          }
+        ]
+      }
+    },
+    "has_sugar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sugar"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:chocolate_chip_cookie"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.root.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.root.description"
+    },
+    "background": "freshcaa:block/pecan_planks",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "requirements": [
+    [
+      "has_wheat",
+      "has_egg",
+      "has_sugar"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

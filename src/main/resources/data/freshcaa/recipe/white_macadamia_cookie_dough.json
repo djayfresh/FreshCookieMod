@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "freshcaa:cookie_dough",
+    "freshcaa:white_macadamia"
+  ],
+  "result": {
+    "id": "freshcaa:white_macadamia_cookie_dough"
+  }
+}

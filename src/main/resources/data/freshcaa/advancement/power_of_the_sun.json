@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "crafted_table": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipes": "freshcaa:sun_drying_table"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:sun_drying_table"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.power_of_the_sun.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.power_of_the_sun.description"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_table"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:getting_started"
+}

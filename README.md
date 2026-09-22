@@ -1,36 +1,59 @@
-# FreshCookieMod
+# Fresh Cookies (FreshCAA)
 
-Minecraft 1.6.4 - Forge Mod. Created 5 new cookies for in game, including art and a new furnace/suntable; two new trees, a peanut plant, and grape vines.
+A Minecraft mod for **NeoForge on Minecraft 26.3**. Five new cookies with their doughs and ingredients,
+a Sun Drying Table that turns grapes into raisins using nothing but sunlight, peanut and grape crops,
+pecan and macadamia trees, and the Factory Worker. Cookies Are Amazing.
 
-## Setup
+The original 2014 version targeted Minecraft 1.6.4 / Forge 9.11. That code is kept under `legacy/`
+and tagged `v1.0-mc1.6.4`.
 
-1. Open your minecraft.exe 
-2. In the bottom left corner is profile. Click `New Profile`
-3. Change the `Use version:` to `release 1.6.4`
-4. Save Profile
-5. Play
-6. Once in the main menu `Quit Game`
-7. Run the `forge-1.6.4-9.11.1.965-installer.jar` or download it from <http://adf.ly/673885/http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.6.4-9.11.1.965/forge-1.6.4-9.11.1.965-installer.jar>
-8. Click `Install Client` and wait for it to finish
-9. Hit the windows key and search for `%appdata%`
-10. Open the folder `.minecraft` then `mods`
-11. copy the `FreshCAA.zip` to the mods folder
-12. Launch your minecraft.exe
-13. Change the profile to `Forge`, or make a copy. 
-14. Play and ENJOY!!!
+## Playing
 
-**The FreshCAA.cfg file with all block ID's in case of ID conflicts can be found in your `%appdata%/.minecraft/config/freshcaa.cfg`. File does not appear till after running the first time.**
+1. Install [NeoForge](https://neoforged.net/) for Minecraft 26.3.
+2. Drop `freshcaa-<version>.jar` into your `mods` folder.
+3. Launch with the NeoForge profile.
 
-## Recipe
+Config lives at `config/freshcaa-common.toml` (or via Mods > Fresh Cookies > Config).
 
-Sun Drying Table - from left to right top to bottom
+## Content
 
-	Stick | Gold    | Stick
-	Gold  | Diamond | Gold
-	Stick | Gold    | Stick
+**Cookies**: Chocolate Chip, Oatmeal Raisin, Peanut Butter, Pecan, White Macadamia.
+Smelt the matching dough in a furnace. Plain cookie dough smelts into a vanilla cookie.
 
-## Known bugs
+**Dough**: Egg + Sugar + Wheat gives 4 Cookie Dough. Combine dough with cocoa beans, raisin + oats,
+peanuts, pecan, or white macadamia for the flavoured doughs. Raw dough is edible, but may poison you.
 
-1. Sun drying table will not change states unless clicked on. Also the UI for the SUN will not remove during the night, but things cannot be smelted.
-2. No recipe guide exists as of yet
-3. Leafs of both trees are completely transparent. (Can see through the ground) 
+**Sun Drying Table**: place grapes in it under open daytime sky and they dry into raisins.
+It needs no fuel, only direct sunlight. Rain, night, or a roof stop it.
+
+    Stick | Gold    | Stick
+    Gold  | Diamond | Gold
+    Stick | Gold    | Stick
+
+**Crops**: Peanuts and Grapes plant on farmland like wheat seeds. Oats come from wheat.
+
+**Trees**: Pecan and Macadamia trees generate in forests, plains and savannas. Leaves drop saplings
+and nuts. Logs craft into planks and smelt into charcoal.
+
+**Factory Worker**: spawns in deserts, plains, rivers and forests. Wanders in the sun and
+heads for the nearest chest during the day.
+
+**Advancements**: a "Fresh Cookies" tab with seven advancements from Getting Started to Macadamia Dance.
+
+## Building
+
+Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing).
+
+    ./gradlew build          # jar lands in build/libs
+    ./gradlew runClient      # dev client
+    ./gradlew runServer      # dev server
+
+## History
+
+| Tag | Minecraft | Notes |
+|---|---|---|
+| `v0.8-mc1.6.4` | 1.6.4 | 2014 initial import |
+| `v0.9-mc1.6.4` | 1.6.4 | Sun Drying Table fixes, refactor |
+| `v1.0-mc1.6.4` | 1.6.4 | Final legacy release with the Factory Worker |
+| `wip-mc1.8` | 1.8 | Unfinished 2015 port, `archive/port-1.8` branch |
+| `v2.0.0` | 26.3 | NeoForge rewrite |

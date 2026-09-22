@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "has_pecan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "freshcaa:pecan"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:pecan"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.pecan_harvest.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.pecan_harvest.description"
+    }
+  },
+  "requirements": [
+    [
+      "has_pecan"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:getting_started"
+}

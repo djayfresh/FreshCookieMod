@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "freshcaa:item/factory_worker_spawn_egg"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "crafted_dough": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipes": "freshcaa:cookie_dough"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "freshcaa:cookie_dough"
+    },
+    "title": {
+      "translate": "advancements.freshcaa.getting_dirty.title"
+    },
+    "description": {
+      "translate": "advancements.freshcaa.getting_dirty.description"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_dough"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "freshcaa:getting_started"
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "freshcaa:pecan_log",
+    "freshcaa:macadamia_log",
+    "freshcaa:pecan_planks",
+    "freshcaa:macadamia_planks"
+  ]
+}

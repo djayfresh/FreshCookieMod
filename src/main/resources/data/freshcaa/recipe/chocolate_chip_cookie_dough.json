@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "freshcaa:cookie_dough",
+    "minecraft:cocoa_beans"
+  ],
+  "result": {
+    "id": "freshcaa:chocolate_chip_cookie_dough"
+  }
+}

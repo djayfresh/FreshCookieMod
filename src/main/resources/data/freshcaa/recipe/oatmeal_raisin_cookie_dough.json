@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "freshcaa:cookie_dough",
+    "freshcaa:raisin",
+    "freshcaa:oats"
+  ],
+  "result": {
+    "id": "freshcaa:oatmeal_raisin_cookie_dough"
+  }
+}
