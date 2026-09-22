@@ -1,0 +1,16 @@
+[
+{
+  "modid": "FreshPirateWorld",
+  "name": "Pirates World",
+  "description": "In a world overrun by water, you must conquer the sea",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://www.djayfresh.com/PirateWorld",
+  "updateUrl": "",
+  "authorList": ["DJayFresh"],
+  "credits": "The Forge and FML guys, for making this possible",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
