@@ -124,4 +124,4 @@ Resolved open points: +100% speed per lens (`lensSpeedBonus`), one lens per craf
 ### Housekeeping
 - Remote branches `neoforge-26.3`, `table-model` and `archive/port-1.8` are merged and can be deleted on GitHub.
 - The MultiMC test instance still has the `JvmArgs` crash-log override I added while chasing the 0xC0000005 crash; harmless, remove if unwanted.
-- Blockbench MCP plugin: the settings-persistence fix is patched locally (`%APPDATA%\Blockbench\mcp-local\mcp.js`) and in `C:\devlockbench-mcp-plugin` on `fix/persist-settings-on-unload`, pending the upstream PR. Until it is merged, a plugin update from the URL will bring the port bug back.
+- Blockbench MCP plugin: the settings-persistence fix is patched locally (`%APPDATA%\Blockbench\mcp-local\mcp.js`) and in `C:\dev\blockbench-mcp-plugin` on `fix/persist-settings-on-unload`, pending the upstream PR. Until it is merged, a plugin update from the URL will bring the port bug back.
