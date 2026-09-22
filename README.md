@@ -7,7 +7,7 @@ pecan and macadamia trees, and the Factory Worker. Cookies Are Amazing.
 The original 2014 version targeted Minecraft 1.6.4 / Forge 9.11. That code is kept under `legacy/`
 and tagged `v1.0-mc1.6.4`.
 
-Downloads: [GitHub releases](https://github.com/djayfresh/FreshCookieMod/releases) | [Planet Minecraft](PLANET_MINECRAFT_URL_TBD)
+Downloads: [GitHub releases](https://github.com/djayfresh/FreshCookieMod/releases) | [Planet Minecraft](https://www.planetminecraft.com/mod/fresh-cookies/)
 
 ## Playing
 

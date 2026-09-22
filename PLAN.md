@@ -105,7 +105,7 @@ Shipped as `v2.1.0` (merged to master, tagged, pushed). Design changed during mo
 Resolved open points: +100% speed per lens (`lensSpeedBonus`), one lens per craft, `raisins` shows as soon as the first raisin lands.
 
 ## Release 2.1.1 (2026-09-22)
-- `CHANGELOG.md` added, README has a Downloads line (Planet Minecraft URL still a placeholder until the page is live).
+- `CHANGELOG.md` added, README has a Downloads line (Planet Minecraft: https://www.planetminecraft.com/mod/fresh-cookies/).
 - Logo added to `neoforge.mods.toml`; version bumped to 2.1.1 since the jar changed. Tag `v2.1.1`, GitHub release with `build/libs/freshcaa-2.1.1.jar`.
 - Verified before release: `./gradlew build`, dedicated server RCON suite (`tools/rcon.py`; place the table high up or clear leaves above it, the test spot at 0 100 0 had three blocks over it), client start with no missing models or textures.
 - Test jar installed in MultiMC (`D:\Minecraft\MultiMC\mods` and the `NeoForge 26.3 FreshCookies` instance) next to Messy Beds 2.0.1; older jars moved to `old/`.
