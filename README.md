@@ -55,6 +55,6 @@ Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing
 | `v0.8-mc1.6.4` | 1.6.4 | 2014 initial import |
 | `v0.9-mc1.6.4` | 1.6.4 | Sun Drying Table fixes, refactor |
 | `v1.0-mc1.6.4` | 1.6.4 | Final legacy release with the Factory Worker |
-| `wip-mc1.8` | 1.8 | Unfinished 2015 port, `archive/port-1.8` branch |
+| `wip-mc1.8` | 1.8 | Unfinished 2015 port, archived under `legacy/Source 1.8/` |
 | `v2.0.0` | 26.3 | NeoForge rewrite |
 | `v2.1.0` | 26.3 | Modelled Sun Drying Table, lenses with light beams |
