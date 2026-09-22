@@ -44,3 +44,6 @@ legacy/Source 1.6.4/bin/
 legacy/Source 1.6.4/reobf/
 legacy/Source 1.7.10/bin/
 legacy/Source 1.7.10/reobf/
+
+### Python ###
+__pycache__/
