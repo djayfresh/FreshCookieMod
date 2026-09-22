@@ -7,6 +7,8 @@ pecan and macadamia trees, and the Factory Worker. Cookies Are Amazing.
 The original 2014 version targeted Minecraft 1.6.4 / Forge 9.11. That code is kept under `legacy/`
 and tagged `v1.0-mc1.6.4`.
 
+Downloads: [GitHub releases](https://github.com/djayfresh/FreshCookieMod/releases) | [Planet Minecraft](PLANET_MINECRAFT_URL_TBD)
+
 ## Playing
 
 1. Install [NeoForge](https://neoforged.net/) for Minecraft 26.3.
@@ -58,3 +60,6 @@ Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing
 | `wip-mc1.8` | 1.8 | Unfinished 2015 port, archived under `legacy/Source 1.8/` |
 | `v2.0.0` | 26.3 | NeoForge rewrite |
 | `v2.1.0` | 26.3 | Modelled Sun Drying Table, lenses with light beams |
+| `v2.1.1` | 26.3 | Mod logo, first published release |
+
+See [CHANGELOG.md](CHANGELOG.md) for details.
