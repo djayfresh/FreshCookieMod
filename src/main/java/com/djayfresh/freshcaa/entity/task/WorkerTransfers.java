@@ -7,7 +7,16 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import com.djayfresh.freshcaa.block.entity.SunDryingTableBlockEntity;
+import com.djayfresh.freshcaa.registry.ModTags;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlastFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.SmokerBlockEntity;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.ResourceHandlerUtil;
@@ -155,6 +164,40 @@ public final class WorkerTransfers {
             }
         }
         return false;
+    }
+
+    /**
+     * Whether the block at {@code pos} actually has a use for the item and room for it. Furnaces, smokers and blast
+     * furnaces only want items they can cook or burn (their top slot accepts anything, so a plain insert test would let
+     * junk in); the Sun Drying Table only wants dryable items; any other container wants whatever fits.
+     */
+    public static boolean wants(Level level, BlockPos pos, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        BlockEntity blockEntity = level.isLoaded(pos) ? level.getBlockEntity(pos) : null;
+        if (blockEntity instanceof AbstractFurnaceBlockEntity) {
+            boolean fuel = stack.has(DataComponents.COOKING_FUEL);
+            if (!fuel && !canCook(level, blockEntity, stack)) {
+                return false;
+            }
+        } else if (blockEntity instanceof SunDryingTableBlockEntity && !stack.is(ModTags.Items.SUN_DRYABLE)) {
+            return false;
+        }
+        return canAccept(level, pos, stack);
+    }
+
+    private static boolean canCook(Level level, BlockEntity furnace, ItemStack stack) {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+        RecipeType<? extends AbstractCookingRecipe> type = furnace instanceof BlastFurnaceBlockEntity ? RecipeType.BLASTING
+                : furnace instanceof SmokerBlockEntity ? RecipeType.SMOKING : RecipeType.SMELTING;
+        return cook(serverLevel, type, stack);
+    }
+
+    private static <T extends AbstractCookingRecipe> boolean cook(ServerLevel level, RecipeType<T> type, ItemStack stack) {
+        return level.recipeAccess().getRecipeFor(type, new SingleRecipeInput(stack), level).isPresent();
     }
 
     public static Predicate<ItemResource> filterFor(ItemStack sample) {

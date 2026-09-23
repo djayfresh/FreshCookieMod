@@ -64,18 +64,27 @@ def slot(draw: ImageDraw.ImageDraw, x: int, y: int) -> None:
     draw.rectangle([x0 + 17, y0 + 1, x0 + 17, y0 + 17], fill=SLOT_LIGHT)
 
 
+def funnel(draw: ImageDraw.ImageDraw, x: int, y: int) -> None:
+    """Faint funnel ghost inside the empty filter slot, like the vanilla empty armour slot icons."""
+    ghost = (120, 120, 120, 255)
+    for row, (left, right) in enumerate([(2, 13), (3, 12), (4, 11), (5, 10), (6, 9), (7, 8)]):
+        draw.line([(x + left, y + 3 + row), (x + right, y + 3 + row)], fill=ghost)
+    draw.rectangle([x + 7, y + 9, x + 8, y + 13], fill=ghost)
+
+
 def sheet() -> None:
     img = Image.new("RGBA", (256, 256), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     panel(draw)
-    # a faint divider between the task column and the binding panel, and above the status line
-    draw.rectangle([63, 17, 63, 92], fill=DARK)
-    draw.rectangle([64, 17, 64, 92], fill=LIGHT)
-    draw.rectangle([8, 93, 167, 93], fill=DARK)
-    draw.rectangle([8, 94, 167, 94], fill=LIGHT)
+    # dividers: between the task column (y 17-91) and the binding panel (y 17-95), and above the status line (y 99)
+    draw.rectangle([63, 16, 63, 95], fill=DARK)
+    draw.rectangle([64, 16, 64, 95], fill=LIGHT)
+    draw.rectangle([8, 96, 167, 96], fill=DARK)
+    draw.rectangle([8, 97, 167, 97], fill=LIGHT)
     for i in range(CARRY_COUNT):
         slot(draw, CARRY_X + i * 18, CARRY_Y)
     slot(draw, FILTER_X, FILTER_Y)
+    funnel(draw, FILTER_X, FILTER_Y)
     for row in range(3):
         for col in range(9):
             slot(draw, INV_X + col * 18, INV_Y + row * 18)

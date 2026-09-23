@@ -40,6 +40,15 @@ public final class HaulRunner implements TaskRunner {
                 worker.setStatus(TaskStatus.BLOCKED, FactoryWorker.describe(level, output));
                 return null;
             }
+            if (!carriesAnythingWanted(worker, level, output)) {
+                // Nothing in hand is any use at the target (bindings or filter changed): take it back.
+                return new TaskStep(supply, w -> {
+                    WorkerTransfers.deliver(level, supply, w.getCarry());
+                    if (!w.getCarry().isEmpty()) {
+                        w.setStatus(TaskStatus.OUTPUT_FULL, FactoryWorker.describe(level, supply));
+                    }
+                });
+            }
             return new TaskStep(output, w -> {
                 WorkerTransfers.deliver(level, output, w.getCarry());
                 if (w.getCarry().isEmpty()) {
@@ -59,14 +68,11 @@ public final class HaulRunner implements TaskRunner {
             worker.setStatus(TaskStatus.BLOCKED, FactoryWorker.describe(level, output));
             return null;
         }
-        ItemStack sample = worker.getFilter().getItem(0);
-        Predicate<ItemResource> filter = WorkerTransfers.filterFor(sample);
+        // Only pick up what the filter allows AND the target has a use for, so junk never leaves the chest.
+        Predicate<ItemResource> filter = WorkerTransfers.filterFor(worker.getFilter().getItem(0))
+                .and(resource -> WorkerTransfers.wants(level, output, resource.toStack(1)));
         if (!WorkerTransfers.hasExtractable(from, filter)) {
             worker.setStatus(TaskStatus.WAITING_SUPPLY, FactoryWorker.describe(level, supply));
-            return null;
-        }
-        if (!sample.isEmpty() && !WorkerTransfers.canAccept(level, output, sample)) {
-            worker.setStatus(TaskStatus.OUTPUT_FULL, FactoryWorker.describe(level, output));
             return null;
         }
         return new TaskStep(supply, w -> {
@@ -77,5 +83,14 @@ public final class HaulRunner implements TaskRunner {
                 w.setStatus(TaskStatus.WAITING_SUPPLY, FactoryWorker.describe(level, supply));
             }
         });
+    }
+
+    private static boolean carriesAnythingWanted(FactoryWorker worker, Level level, BlockPos output) {
+        for (int slot = 0; slot < worker.getCarry().getContainerSize(); slot++) {
+            if (WorkerTransfers.wants(level, output, worker.getCarry().getItem(slot))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

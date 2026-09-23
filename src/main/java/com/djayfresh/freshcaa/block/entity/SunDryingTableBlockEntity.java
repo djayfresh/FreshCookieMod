@@ -241,7 +241,7 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
         if (isUpgradeSlot(slot)) {
             return itemStack.is(ModTags.Items.SUN_DRYING_TABLE_UPGRADES);
         }
-        return slot == SLOT_INPUT;
+        return slot == SLOT_INPUT && itemStack.is(ModTags.Items.SUN_DRYABLE);
     }
 
     @Override
@@ -254,7 +254,7 @@ public class SunDryingTableBlockEntity extends BaseContainerBlockEntity implemen
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack itemStack, @Nullable Direction direction) {
-        return slot == SLOT_INPUT;
+        return slot == SLOT_INPUT && itemStack.is(ModTags.Items.SUN_DRYABLE);
     }
 
     @Override
