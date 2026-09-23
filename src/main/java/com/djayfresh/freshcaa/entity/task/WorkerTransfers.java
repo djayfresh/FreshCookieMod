@@ -69,6 +69,17 @@ public final class WorkerTransfers {
         }
     }
 
+    /** One of the first matching item in the handler, or empty. Nothing is moved. */
+    public static ItemStack peekFirst(@Nullable ResourceHandler<ItemResource> handler, Predicate<ItemResource> filter) {
+        if (handler == null) {
+            return ItemStack.EMPTY;
+        }
+        try (Transaction tx = Transaction.openRoot()) {
+            ResourceStack<ItemResource> stack = ResourceHandlerUtil.extractFirst(handler, filter, 1, tx);
+            return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack.resource().toStack(1);
+        }
+    }
+
     /**
      * Moves up to {@code max} of the first matching item type from the handler into the worker's carry inventory.
      *

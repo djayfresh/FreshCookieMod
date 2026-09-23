@@ -235,30 +235,53 @@ public class FactoryWorker extends PathfinderMob {
         this.setTask(updated);
     }
 
-    /** Scans the work area for the closest block that fits the slot and binds it; false if nothing fits. */
+    /**
+     * Scans the work area and binds the closest block that fits the slot. Supply prefers a container with something
+     * to take out (matching the filter); Output prefers one that accepts what Supply holds. If nothing fits that well,
+     * the closest container of any kind is used, so the button always does something. False if there is none.
+     */
     public boolean bindNearest(BindingSlot slot) {
-        BlockPos centre = this.getHomeOrPosition();
-        int range = Config.WORKER_WORK_RANGE.get();
-        BlockPos best = null;
-        double bestDistance = Double.MAX_VALUE;
-        for (BlockPos pos : BlockPos.betweenClosed(centre.offset(-range, -4, -range), centre.offset(range, 4, range))) {
-            if (this.task.bindings().containsValue(pos)) {
-                continue;
+        ItemStack sample = this.filter.getItem(0);
+        java.util.function.Predicate<net.neoforged.neoforge.transfer.item.ItemResource> filterTest = WorkerTransfers.filterFor(sample);
+        if (slot == BindingSlot.OUTPUT && sample.isEmpty()) {
+            BlockPos supply = this.task.binding(BindingSlot.SUPPLY).orElse(null);
+            if (supply != null) {
+                sample = WorkerTransfers.peekFirst(WorkerTransfers.extractHandler(this.level(), supply), filterTest);
             }
-            if (!WorkerTransfers.looksLikeContainer(this.level(), pos)) {
-                continue;
-            }
-            double distance = pos.distSqr(this.blockPosition());
-            if (distance < bestDistance) {
-                bestDistance = distance;
-                best = pos.immutable();
-            }
+        }
+        ItemStack wanted = sample;
+        java.util.function.Predicate<BlockPos> fits = switch (slot) {
+            case SUPPLY -> pos -> WorkerTransfers.hasExtractable(WorkerTransfers.extractHandler(this.level(), pos), filterTest);
+            case OUTPUT -> pos -> wanted.isEmpty() || WorkerTransfers.canAccept(this.level(), pos, wanted);
+            default -> pos -> true;
+        };
+        BlockPos best = this.closestContainer(fits);
+        if (best == null) {
+            best = this.closestContainer(pos -> true);
         }
         if (best == null) {
             return false;
         }
         this.bind(slot, best);
         return true;
+    }
+
+    private @Nullable BlockPos closestContainer(java.util.function.Predicate<BlockPos> fits) {
+        BlockPos centre = this.getHomeOrPosition();
+        int range = Config.WORKER_WORK_RANGE.get();
+        BlockPos best = null;
+        double bestDistance = Double.MAX_VALUE;
+        for (BlockPos pos : BlockPos.betweenClosed(centre.offset(-range, -4, -range), centre.offset(range, 4, range))) {
+            if (this.task.bindings().containsValue(pos) || !WorkerTransfers.looksLikeContainer(this.level(), pos)) {
+                continue;
+            }
+            double distance = pos.distSqr(this.blockPosition());
+            if (distance < bestDistance && fits.test(pos)) {
+                bestDistance = distance;
+                best = pos.immutable();
+            }
+        }
+        return best;
     }
 
     public TaskStatus getStatus() {
