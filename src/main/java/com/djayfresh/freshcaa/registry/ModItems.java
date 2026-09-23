@@ -1,6 +1,7 @@
 package com.djayfresh.freshcaa.registry;
 
 import com.djayfresh.freshcaa.FreshCookies;
+import com.djayfresh.freshcaa.item.ClipboardItem;
 import com.djayfresh.freshcaa.item.CookieDoughItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -50,6 +51,10 @@ public final class ModItems {
 
     // Sun Drying Table upgrade: one per slot, focuses the sun onto the table.
     public static final DeferredItem<Item> LENS = ITEMS.registerSimpleItem("lens", p -> p.stacksTo(16));
+
+    // Factory Worker tools: the Work Post marks a home, the Clipboard records blocks to bind.
+    public static final DeferredItem<BlockItem> WORK_POST = ITEMS.registerSimpleBlockItem(ModBlocks.WORK_POST);
+    public static final DeferredItem<ClipboardItem> CLIPBOARD = ITEMS.registerItem("clipboard", ClipboardItem::new, p -> p.stacksTo(1));
 
     // Entities register before items, so the entity type is available here.
     public static final DeferredItem<SpawnEggItem> FACTORY_WORKER_SPAWN_EGG = ITEMS.registerItem("factory_worker_spawn_egg", SpawnEggItem::new,

@@ -1,6 +1,7 @@
 package com.djayfresh.freshcaa.entity.ai;
 
 import java.util.EnumSet;
+import java.util.function.BooleanSupplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -18,13 +19,15 @@ public class FindChestGoal extends Goal {
     private final PathfinderMob mob;
     private final double speedModifier;
     private final int range;
+    private final BooleanSupplier enabled;
     private @Nullable BlockPos target;
     private int cooldown;
 
-    public FindChestGoal(PathfinderMob mob, double speedModifier, int range) {
+    public FindChestGoal(PathfinderMob mob, double speedModifier, int range, BooleanSupplier enabled) {
         this.mob = mob;
         this.speedModifier = speedModifier;
         this.range = range;
+        this.enabled = enabled;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
 
@@ -34,7 +37,7 @@ public class FindChestGoal extends Goal {
             this.cooldown--;
             return false;
         }
-        if (!this.mob.level().isBrightOutside()) {
+        if (!this.enabled.getAsBoolean() || !this.mob.level().isBrightOutside()) {
             return false;
         }
         this.target = this.findClosestChest();

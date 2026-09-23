@@ -31,6 +31,22 @@ public final class Config {
             .comment("Weight of grapes in the grass seed pick (0 disables)")
             .defineInRange("grapeDropWeight", 10, 0, 1000);
 
+    public static final ModConfigSpec.IntValue HIRE_COST = BUILDER
+            .comment("Cookies (any kind, tag freshcaa:cookies) needed to hire a Factory Worker; 0 hires for free")
+            .defineInRange("hireCost", 8, 0, 64);
+
+    public static final ModConfigSpec.IntValue WORKER_WORK_RANGE = BUILDER
+            .comment("Radius in blocks around a worker's home that the Nearest button searches for containers")
+            .defineInRange("workerWorkRange", 16, 4, 64);
+
+    public static final ModConfigSpec.IntValue WORKER_WORK_TICKS = BUILDER
+            .comment("Ticks a worker spends at a block per action (loading or unloading a stack)")
+            .defineInRange("workerWorkTicks", 20, 1, 200);
+
+    public static final ModConfigSpec.BooleanValue WORKER_RESTS_AT_NIGHT = BUILDER
+            .comment("Whether hired workers stop working between dusk and dawn")
+            .define("workerRestsAtNight", false);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 
     private Config() {}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "freshcaa:block/work_post" },
+    "facing=east": { "model": "freshcaa:block/work_post", "y": 90 },
+    "facing=south": { "model": "freshcaa:block/work_post", "y": 180 },
+    "facing=west": { "model": "freshcaa:block/work_post", "y": 270 }
+  }
+}

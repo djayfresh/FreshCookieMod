@@ -37,6 +37,7 @@ public class FreshCookiesClient {
     @SubscribeEvent
     static void onRegisterScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenus.SUN_DRYING_TABLE.get(), SunDryingTableScreen::new);
+        event.register(ModMenus.FACTORY_WORKER.get(), FactoryWorkerScreen::new);
     }
 
     @SubscribeEvent

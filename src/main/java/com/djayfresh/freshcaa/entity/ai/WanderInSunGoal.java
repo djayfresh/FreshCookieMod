@@ -1,6 +1,7 @@
 package com.djayfresh.freshcaa.entity.ai;
 
 import java.util.EnumSet;
+import java.util.function.BooleanSupplier;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
@@ -13,18 +14,20 @@ public class WanderInSunGoal extends Goal {
     private final PathfinderMob mob;
     private final double speedModifier;
     private final float range;
+    private final BooleanSupplier enabled;
     private @Nullable Vec3 target;
 
-    public WanderInSunGoal(PathfinderMob mob, double speedModifier, float range) {
+    public WanderInSunGoal(PathfinderMob mob, double speedModifier, float range, BooleanSupplier enabled) {
         this.mob = mob;
         this.speedModifier = speedModifier;
         this.range = range;
+        this.enabled = enabled;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
 
     @Override
     public boolean canUse() {
-        if (!this.mob.level().isBrightOutside()) {
+        if (!this.enabled.getAsBoolean() || !this.mob.level().isBrightOutside()) {
             return false;
         }
         if (this.mob.getRandom().nextInt(reducedTickDelay(START_CHANCE)) != 0) {

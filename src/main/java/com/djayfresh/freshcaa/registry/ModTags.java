@@ -12,6 +12,8 @@ public final class ModTags {
         public static final TagKey<Item> SUN_DRYABLE = tag("sun_dryable");
         /** Items accepted by the Sun Drying Table's four upgrade slots (the lens). */
         public static final TagKey<Item> SUN_DRYING_TABLE_UPGRADES = tag("sun_drying_table_upgrades");
+        /** Every cookie, ours and vanilla's: what a Factory Worker is hired with. */
+        public static final TagKey<Item> COOKIES = tag("cookies");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(FreshCookies.MODID, name));

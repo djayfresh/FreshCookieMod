@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": "#minecraft:planks",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "ppp",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "id": "freshcaa:work_post"
+  }
+}

@@ -4,6 +4,7 @@ import com.djayfresh.freshcaa.FreshCookies;
 import com.djayfresh.freshcaa.block.GrapeVineBlock;
 import com.djayfresh.freshcaa.block.PeanutPlantBlock;
 import com.djayfresh.freshcaa.block.SunDryingTableBlock;
+import com.djayfresh.freshcaa.block.WorkPostBlock;
 import com.djayfresh.freshcaa.worldgen.ModTreeGrowers;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +32,16 @@ public final class ModBlocks {
                     .strength(3.5F)
                     .noOcclusion()
                     .lightLevel(state -> state.getValue(SunDryingTableBlock.LIT) ? 6 : 0));
+
+    // Work Post: a hired worker's home marker and build anchor.
+    public static final DeferredBlock<WorkPostBlock> WORK_POST = BLOCKS.registerBlock("work_post", WorkPostBlock::new,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD)
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(1.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()
+                    .ignitedByLava());
 
     // Crops
     public static final DeferredBlock<PeanutPlantBlock> PEANUT_PLANT = BLOCKS.registerBlock("peanut_plant", PeanutPlantBlock::new, ModBlocks::cropProperties);

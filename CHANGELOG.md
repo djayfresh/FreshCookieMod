@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.3.0 (unreleased) - Minecraft 26.3, NeoForge
+
+- **Factory Workers can be hired.** Right-click a wild worker while holding 8 cookies of any kind (`hireCost` in the config, item tag `freshcaa:cookies`). A hired worker never wanders off, opens a task screen on right-click, and carries up to four stacks in its arms.
+- **Task screen**: pick a job on the left (Haul is available now; Tend, Mix and Build are greyed out until later updates), bind the blocks it works between on the right with "N" (nearest container in the work area) or "X" (clear), put a sample item in the Filter slot to restrict what it moves, and Dismiss it to get everything back.
+- **Haul**: moves items from the Supply block to the Output block, one stack per trip. Machines are loaded through their top like a hopper does, fuel goes in through the side, so "dough to furnace", "coal to furnace", "grapes to Sun Drying Table" and "raisins to chest" are each one Haul job. The status line explains what it is doing or why it is waiting.
+- **Work Post** block (three planks over two sticks): a worker's home. Placing one near hired workers without a home gives them this one; they idle around it between jobs.
+- **Clipboard** item (iron nugget, paper, planks): right-click containers or a Work Post to record them, then right-click a hired worker to fill its bindings in order and open its screen. Sneak-right-click the air to clear it.
+- Hoppers and other mods can now reach the Sun Drying Table's grape and raisin slots through the item capability, and a worker's carry inventory through the entity capability.
+- New config: `hireCost`, `workerWorkRange`, `workerWorkTicks`, `workerRestsAtNight`.
+
 ## 2.2.0 (2026-09-22) - Minecraft 26.3, NeoForge
 
 - Grapes and peanuts can be found again: breaking grass or ferns that would drop wheat seeds now picks wheat seeds, peanuts or grapes by weight, as the 1.6.4 version did. Three config weights (`wheatSeedDropWeight`, `peanutDropWeight`, `grapeDropWeight`, default 10 each; 0 disables one). Implemented as a global loot modifier, so it works with datapacks that change grass loot.

@@ -38,7 +38,13 @@ It needs no fuel, only direct sunlight. Rain, night, or a roof stop it.
 and nuts. Logs craft into planks and smelt into charcoal.
 
 **Factory Worker**: spawns in deserts, plains, rivers and forests. Wanders in the sun and
-heads for the nearest chest during the day.
+heads for the nearest chest during the day. Hold 8 cookies (any kind) and right-click one to **hire** it:
+it stays put, gets a task screen on right-click, and carries up to four stacks. Give it a **Haul** job by
+binding a Supply block and an Output block (the "N" button picks the nearest container, or record blocks
+with a **Clipboard** and hand it over), optionally with a sample item in the Filter slot. It loads
+furnaces and the Sun Drying Table the way a hopper would (fuel through the side), and the status line
+says what it is doing. A **Work Post** marks its home. Tend, Mix and Build jobs are coming in later
+updates. Config: `hireCost`, `workerWorkRange`, `workerWorkTicks`, `workerRestsAtNight`.
 
 **Advancements**: a "Fresh Cookies" tab with seven advancements from Getting Started to Macadamia Dance.
 

@@ -2,6 +2,8 @@ package com.djayfresh.freshcaa;
 
 import com.djayfresh.freshcaa.registry.ModBlockEntities;
 import com.djayfresh.freshcaa.registry.ModBlocks;
+import com.djayfresh.freshcaa.registry.ModCapabilities;
+import com.djayfresh.freshcaa.registry.ModDataComponents;
 import com.djayfresh.freshcaa.registry.ModEntities;
 import com.djayfresh.freshcaa.registry.ModItems;
 import com.djayfresh.freshcaa.registry.ModLootModifiers;
@@ -57,6 +59,8 @@ public class FreshCookies {
 
                 output.accept(ModItems.SUN_DRYING_TABLE.get());
                 output.accept(ModItems.LENS.get());
+                output.accept(ModItems.WORK_POST.get());
+                output.accept(ModItems.CLIPBOARD.get());
 
                 output.accept(ModItems.PECAN_SAPLING.get());
                 output.accept(ModItems.PECAN_LOG.get());
@@ -78,10 +82,12 @@ public class FreshCookies {
         ModMenus.MENUS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
+        ModDataComponents.DATA_COMPONENTS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(ModEntities::onAttributeCreation);
         modEventBus.addListener(ModEntities::onSpawnPlacements);
+        modEventBus.addListener(ModCapabilities::register);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
