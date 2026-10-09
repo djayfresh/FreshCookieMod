@@ -37,6 +37,7 @@ REQUIREMENTS
 
 DOWNLOAD
 https://github.com/djayfresh/FreshCookieMod/releases
+Also on https://playallday.games/mods/ (sign in to download)
 Source, issues and the 2014 originals: https://github.com/djayfresh/FreshCookieMod
 
 Drop the jar into your mods folder alongside NeoForge. Bring milk.

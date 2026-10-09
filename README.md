@@ -7,7 +7,7 @@ pecan and macadamia trees, and the Factory Worker. Cookies Are Amazing.
 The original 2014 version targeted Minecraft 1.6.4 / Forge 9.11. That code is kept under `legacy/`
 and tagged `v1.0-mc1.6.4`.
 
-Downloads: [GitHub releases](https://github.com/djayfresh/FreshCookieMod/releases) | [Planet Minecraft](https://www.planetminecraft.com/mod/fresh-cookies/)
+Downloads: [GitHub releases](https://github.com/djayfresh/FreshCookieMod/releases) | [Planet Minecraft](https://www.planetminecraft.com/mod/fresh-cookies/) | [playallday.games](https://playallday.games/mods/) (sign in to download)
 
 ## Playing
 
@@ -49,6 +49,22 @@ Requires JDK 25 on the path to run Gradle (the toolchain downloads it if missing
     ./gradlew build          # jar lands in build/libs
     ./gradlew runClient      # dev client
     ./gradlew runServer      # dev server
+
+## Releasing
+
+A release goes to three places, all with the same file:
+
+1. **GitHub releases**: tag `v<version>` and attach `build/libs/freshcaa-<version>.jar`.
+2. **Planet Minecraft**: copy the text from `mod.description.md` and upload the same file.
+3. **playallday.games/mods/**: from the `playallday` repo, upload the file and deploy the list
+   (its `mod-release` skill, Minecraft section, has the full steps):
+
+       cd ../playallday
+       AWS_VAULT_BACKEND=file AWS_VAULT_FILE_PASSPHRASE= npm run post-mod -- fresh-cookies ../FreshCookieMod/build/libs/freshcaa-<version>.jar "MC 26.3 / NeoForge 26.3.0.8-beta" "<version>"
+       npm test && git add mods.json && git commit -m "Mods: <title> <version>" && git push
+       AWS_VAULT_BACKEND=file AWS_VAULT_FILE_PASSPHRASE= npm run deploy:api
+
+   Players there must be signed in to download.
 
 ## History
 
